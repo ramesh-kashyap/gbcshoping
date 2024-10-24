@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
+| donee
 */
 Route::get('/clear', function() {
 
@@ -53,16 +53,10 @@ Route::post('/registers', [App\Http\Controllers\Register::class, 'register'])->n
 Route::get('/register_sucess', [App\Http\Controllers\Register::class, 'index'])->name('register_sucess');
 
 Route::get('/Index', [App\Http\Controllers\FrontController::class, 'index'])->name('Index');
-Route::get('/search-screen', [App\Http\Controllers\FrontController::class, 'searchScreen'])->name('search-screan');
+Route::get('/cart', [App\Http\Controllers\FrontController::class, 'cart'])->name('cart');
 
-Route::get('/about-us', [App\Http\Controllers\FrontController::class, 'about'])->name('about-us');
-Route::get('/services', [App\Http\Controllers\FrontController::class, 'services'])->name('services');
-Route::get('/contact-us', [App\Http\Controllers\FrontController::class, 'contact'])->name('contact-us');
-Route::get('/faq', [App\Http\Controllers\FrontController::class, 'faq'])->name('faq');
-Route::get('/team', [App\Http\Controllers\FrontController::class, 'tutorial'])->name('tutorial');
-Route::get('/Investor', [App\Http\Controllers\FrontController::class, 'team'])->name('team');
-Route::get('/term-candition', [App\Http\Controllers\FrontController::class, 'termcandition'])->name('term-candition');
-Route::get('/news', [App\Http\Controllers\FrontController::class, 'news'])->name('news');
+
+
 
 
 Route::get('/home', [App\Http\Controllers\UserPanel\Dashboard::class, 'index'])->name('home');
