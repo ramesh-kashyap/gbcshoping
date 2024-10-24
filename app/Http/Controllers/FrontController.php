@@ -10,13 +10,11 @@ class FrontController extends Controller
     public function index()
     {
 
-        return view('main.home');
+        return view('user.home');
     }
-
-    public function cart()
-    {
-        return view('main.cart');
-    }
+   
+   
+    
 
  
    
