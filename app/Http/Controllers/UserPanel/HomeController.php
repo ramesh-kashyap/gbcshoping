@@ -11,4 +11,15 @@ class HomeController extends Controller
     {
 
         return view('user.home');
-    }}
+    }
+    public function all_product()
+    {
+
+        return view('user.all-product');
+    }
+    public function add_cart()
+    {
+
+        return view('user.add-cart');
+    }
+}

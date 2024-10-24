@@ -61,6 +61,9 @@ Route::prefix('user')->group(function ()
 {
 Route::middleware('auth')->group(function ()
 {
+  Route::get('/add-cart', [App\Http\Controllers\UserPanel\HomeController::class, 'add_cart'])->name('user.add-cart');
+
+  Route::get('/all-product', [App\Http\Controllers\UserPanel\HomeController::class, 'all_product'])->name('user.all-product');
 
 Route::get('/cart', [App\Http\Controllers\UserPanel\CartController::class, 'cart'])->name('user.cart');
 Route::get('/checkout-details', [App\Http\Controllers\UserPanel\CartController::class, 'checkout_details'])->name('user.checkout-details');
