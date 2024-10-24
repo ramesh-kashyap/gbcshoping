@@ -55,6 +55,7 @@ Route::get('/register_sucess', [App\Http\Controllers\Register::class, 'index'])-
 Route::get('/Index', [App\Http\Controllers\UserPanel\HomeController::class, 'index'])->name('Index');
 Route::get('/search-product', [App\Http\Controllers\UserPanel\SearchController::class, 'search_product'])->name('search-product');
 
+Route::get('/wishlist', [App\Http\Controllers\UserPanel\CartController::class, 'wishlist'])->name('user.wishlist');
 
 Route::get('/home', [App\Http\Controllers\UserPanel\Dashboard::class, 'index'])->name('home');
 Route::prefix('user')->group(function ()
@@ -68,7 +69,6 @@ Route::middleware('auth')->group(function ()
 Route::get('/cart', [App\Http\Controllers\UserPanel\CartController::class, 'cart'])->name('user.cart');
 Route::get('/checkout-details', [App\Http\Controllers\UserPanel\CartController::class, 'checkout_details'])->name('user.checkout-details');
 Route::get('/enter-Pincode', [App\Http\Controllers\UserPanel\CartController::class, 'pin_code'])->name('user.pin_code');
-Route::get('/wishlist', [App\Http\Controllers\UserPanel\CartController::class, 'wishlist'])->name('user.wishlist');
 
 // Route::get('/wishlist-screen', [App\Http\Controllers\UserPanel\wishController::class, 'wishlist'])->name('wishlist-screen');
 
