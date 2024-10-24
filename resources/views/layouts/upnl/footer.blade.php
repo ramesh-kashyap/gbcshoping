@@ -58,7 +58,7 @@
 							Wishlist
 						</span>
 					</a>
-					<a href="{{route('')}}">
+					<a href="{{route('user.account-screen')}}">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5961" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
