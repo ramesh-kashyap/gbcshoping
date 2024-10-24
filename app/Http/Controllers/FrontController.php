@@ -13,43 +13,14 @@ class FrontController extends Controller
         return view('main.home');
     }
 
-    public function about()
+    public function cart()
     {
-        return view('main.about');
+        return view('main.cart');
     }
 
-    public function services()
-    {
-        return view('main.services');
-    }
-
-    public function contact()
-    {
-        return view('main.contact');
-    }
-    public function faq()
-    {
-        return view('main.faq');
-    }
+ 
    
-    public function tutorial()
-    {
-        return view('main.tutorial');
-    }
-
-    public function team()
-    {
-        return view('main.investor');
-    }
-    public function termcandition()
-    {
-        return view('main.term-candition');
-    }
-
-    public function news()
-    {
-        return view('main.news');
-    }
+   
 
 
 
