@@ -1,23 +1,25 @@
-<html lang="en"><head>
+<html lang="en">
+
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Zoop Retails Store</title>
-	<link rel="icon" href="assets/images/favicon/icon.png">
+	<link rel="icon" href="{{asset('')}}assets/images/favicon/icon.png">
 	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('')}}assets//css/all.min.css" />
-    <link rel="stylesheet" href="{{asset('')}}assets//css/bootstrap.min.css" />
-    <link rel="stylesheet" href="{{asset('')}}assets//css/style.css" />
-    <link rel="stylesheet" href="{{asset('')}}assets//css/all.min.css" />
-    <link rel="stylesheet" href="{{asset('')}}assets//css/all.min.css" />
+	<link rel="stylesheet" href="{{asset('')}}assets/css/all.min.css" />
+	<link rel="stylesheet" href="{{asset('')}}assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="{{asset('')}}assets/css/style.css" />
+	<link rel="stylesheet" href="{{asset('')}}assets/css/media-query.css" />
+	<link rel="stylesheet" href="{{asset('')}}assets/css/pricing-slider.css" />
+	<link rel="stylesheet" href="{{asset('')}}assets/css/intlTelInput.css" />
+	<link rel="stylesheet" href="{{asset('')}}assets/css/slick.css" />
 
-	<link rel="stylesheet" href="assets/css/all.min.css">
-	<link rel="stylesheet" href="assets/css/">
-	<link rel="stylesheet" href="assets/css/">
-	<link rel="stylesheet" href="assets/css/">
-	<link rel="stylesheet" href="assets/css/media-query.css">
+
+
 </head>
+
 <body>
 	<div class="site-content">
 		<!-- Preloader Start -->
@@ -29,7 +31,7 @@
 		<!-- Header Start -->
 		<header id="let-yoy-page-section">
 			<div class="imgaes">
-				<img src="assets/images/sign-in-screen/header-img.png" alt="header-img" class="img-fluid w-100">
+				<img src="{{asset('')}}assets/images/auth-screen/header-img.png" alt="header-img" class="img-fluid w-100">
 				<div class="overlay"></div>
 			</div>
 			<div class="let-yoy-page-section-full">
@@ -56,50 +58,59 @@
 			<div class="container">
 				<div class="sign-in-full-section">
 					<h2 class="d-none">Sign In Page</h2>
-					<form>
-						<div class="form-details-sign-in">
-							<span>
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<mask id="mask0_330_7186" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-										<rect width="24" height="24" fill="white"></rect>
-									</mask>
-									<g mask="url(#mask0_330_7186)">
-										<path d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-										<path d="M3 7L12 13L21 7" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-									</g>
-								</svg>
-							</span>
-							<input type="email" id="Email" placeholder="Email" class="sign-in-custom-input" fdprocessedid="lo04r">
-						</div>
-						<div class="form-details-sign-in mt-16">
-							<span>
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<mask id="mask0_330_7136" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-										<rect width="24" height="24" fill="white"></rect>
-									</mask>
-									<g mask="url(#mask0_330_7136)">
-										<path d="M17 11H7C5.89543 11 5 11.8954 5 13V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V13C19 11.8954 18.1046 11 17 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-										<path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-										<path d="M8 11V7C8 5.93913 8.42143 4.92172 9.17157 4.17157C9.92172 3.42143 10.9391 3 12 3C13.0609 3 14.0783 3.42143 14.8284 4.17157C15.5786 4.92172 16 5.93913 16 7V11" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-									</g>
-								</svg>
-							</span>
-							<input type="password" id="password" placeholder="Password" class="sign-in-custom-input" fdprocessedid="z7qnoo">
-							<i class="fas fa-eye-slash" id="eye"></i>
-						</div>
-					</form>
-					<div class="remember-section">
-						<div class="footer-checkbox-sec">
-							<input class="footer-checkbox-input" id="footer-checkbox" type="checkbox">
-							<label for="footer-checkbox" class="footer-chec-txt">Remember Me</label>
-						</div>
-						<div class="forget-btn">
-							<a href="forget-password-screen.html">Forget password?</a>
-						</div>
-					</div>
-					<div class="sign-in-btn ">
-						<a href="check-mail-screen.html">Sign In</a>
-					</div>
+					<form action="{{ route('login') }}" method="post">
+    @csrf
+    <div class="form-details-sign-in">
+        <span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_330_7186" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                    <rect width="24" height="24" fill="white"></rect>
+                </mask>
+                <g mask="url(#mask0_330_7186)">
+                    <path d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3 7L12 13L21 7" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </svg>
+        </span>
+        <input type="text" id="username" placeholder="username" name="username" class="sign-in-custom-input">
+    </div>
+    <div class="form-details-sign-in mt-16">
+        <span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_330_7136" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                    <rect width="24" height="24" fill="white"></rect>
+                </mask>
+                <g mask="url(#mask0_330_7136)">
+                    <path d="M17 11H7C5.89543 11 5 11.8954 5 13V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V13C19 11.8954 18.1046 11 17 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M8 11V7C8 5.93913 8.42143 4.92172 9.17157 4.17157C9.92172 3.42143 10.9391 3 12 3C13.0609 3 14.0783 3.42143 14.8284 4.17157C15.5786 4.92172 16 5.93913 16 7V11" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </svg>
+        </span>
+        <input type="password" id="password" name="password" placeholder="Password" class="sign-in-custom-input">
+        <i class="fas fa-eye-slash" id="eye"></i>
+    </div>
+    <div class="remember-section">
+        <div class="footer-checkbox-sec">
+            <input class="footer-checkbox-input" id="footer-checkbox" type="checkbox">
+            <label for="footer-checkbox" class="footer-chec-txt">Remember Me</label>
+        </div>
+        <div class="forget-btn">
+            <a href="{{ route('forgot-password') }}">Forget password?</a>
+        </div>
+    </div>
+
+    <div class="sign-in-btn">
+        <button type="submit" style="background-color: #FF4C3B; color: white; border: none; border-radius: 5px; padding: 10px 20px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;"
+                onmouseover="this.style.backgroundColor='#e03a30'" 
+                onmouseout="this.style.backgroundColor='#FF4C3B'">
+            Sign In
+        </button>
+    </div>
+</form>
+
+@include('partials.notify')
+
 					<div class="or-section">
 						<p>or continue with</p>
 					</div>
@@ -148,14 +159,17 @@
 		<!-- Footer Start -->
 		<footer id="let-you-footer">
 			<div class="block-footer">
-				<p>Don’t have an account? <a href="sign-up-screen.html">Sign Up</a></p>
+				<p>Don’t have an account? <a href="{{route('register')}}">Sign Up</a></p>
 			</div>
 		</footer>
 		<!-- Footer End -->
 	</div>
-	<script src="assets/js/jquery-min-3.6.0.js"></script>
-	<script src="assets/js/slick.min.js"></script>
-	<script src="assets/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/js/custom.js"></script>
+	<script src="{{asset('')}}assets/js/jquery-min-3.6.0.js"></script>
+	<script src="{{asset('')}}assets/js/slick.min.js"></script>
+	<script src="{{asset('')}}assets/js/bootstrap.bundle.min.js"></script>
+	<script src="{{asset('')}}assets/js/custom.js"></script>
 
-<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
+	<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
+</body>
+
+</html>
