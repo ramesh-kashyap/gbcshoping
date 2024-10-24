@@ -65,6 +65,9 @@ Route::middleware('auth')->group(function ()
 Route::get('/cart', [App\Http\Controllers\UserPanel\CartController::class, 'cart'])->name('user.cart');
 Route::get('/checkout-details', [App\Http\Controllers\UserPanel\CartController::class, 'checkout_details'])->name('user.checkout-details');
 Route::get('/enter-Pincode', [App\Http\Controllers\UserPanel\CartController::class, 'pin_code'])->name('user.pin_code');
+Route::get('/wishlist', [App\Http\Controllers\UserPanel\CartController::class, 'wishlist'])->name('user.wishlist');
+
+// Route::get('/wishlist-screen', [App\Http\Controllers\UserPanel\wishController::class, 'wishlist'])->name('wishlist-screen');
 
 
 

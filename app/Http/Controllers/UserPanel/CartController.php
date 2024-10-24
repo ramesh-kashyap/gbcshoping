@@ -19,4 +19,8 @@ class CartController extends Controller
     {
         return view('user.cart.checkout-details');
     }
+    public function wishlist()
+    {
+        return view('user.wishlist.wishlist-screen');
+    }
 }
