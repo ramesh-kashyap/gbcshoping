@@ -15,7 +15,7 @@ class FrontController extends Controller
 
     public function cart()
     {
-        return view('main.cart');
+        return view('auth.cart.carts-details');
     }
 
  
