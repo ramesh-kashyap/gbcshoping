@@ -530,4 +530,4 @@
 		</div>
 		<!--SideBar Setting Menu -->
 		<!--Bottom TabBar Section Start -->
-		@include('layouts.upnl.footer');
+		@include('layouts.upnl.footer')

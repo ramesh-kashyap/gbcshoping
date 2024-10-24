@@ -239,7 +239,7 @@
 									</div>
 								</div>
 							</a>
-							<a href="log-out.html">
+							<a href="{{route('logout')}}">
 								<div class="account-wrapper">
 									<div class="account-img">
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
