@@ -46,7 +46,7 @@ class Login extends Controller
                return Redirect::back()->withErrors(array('You are Blocked by admin'));
                 }
 
-                return redirect()->route('user.dashboard');
+                return redirect()->route('Index');
 
               // echo "credentials are invalid"; die;
             }

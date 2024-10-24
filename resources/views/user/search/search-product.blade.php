@@ -513,4 +513,5 @@
 		</section>
 		<!-- Search Screen End -->
 		<!--Bottom TabBar Section Start -->
-        @include('layouts.upnl.footer');
+        @include('layouts.upnl.header')
+        @include('layouts.upnl.footer')
