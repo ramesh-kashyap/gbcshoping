@@ -53,6 +53,8 @@ Route::post('/registers', [App\Http\Controllers\Register::class, 'register'])->n
 Route::get('/register_sucess', [App\Http\Controllers\Register::class, 'index'])->name('register_sucess');
 
 Route::get('/Index', [App\Http\Controllers\FrontController::class, 'index'])->name('Index');
+Route::get('/search-screen', [App\Http\Controllers\FrontController::class, 'searchScreen'])->name('search-screan');
+
 Route::get('/about-us', [App\Http\Controllers\FrontController::class, 'about'])->name('about-us');
 Route::get('/services', [App\Http\Controllers\FrontController::class, 'services'])->name('services');
 Route::get('/contact-us', [App\Http\Controllers\FrontController::class, 'contact'])->name('contact-us');

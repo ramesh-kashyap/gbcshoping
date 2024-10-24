@@ -13,9 +13,14 @@ class FrontController extends Controller
         return view('main.home');
     }
 
-    public function about()
+    // public function about()
+    // {
+    //     return view('main.about');
+    // }
+    
+    public function searchScreen()
     {
-        return view('main.about');
+        return view('main.search-screen');
     }
 
     public function services()
