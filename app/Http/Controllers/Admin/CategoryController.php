@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function category(Request $request)
 {
 
-$this->data['page'] = 'admin.product.add-category';
+$this->data['page'] = 'admin.category.add-category';
 return $this->admin_dashboard();
 
 }
