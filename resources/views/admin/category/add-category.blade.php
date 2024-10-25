@@ -27,11 +27,7 @@
                                                 <label class="form-label">Category Name</label>
                                                 <input class="form-control" id="inputEmail3" placeholder="Category name" type="text" name="categoryname">
                                             </div>
-     
-                                           
-                                           
-                                         
-     
+
                                         </div>
      
                                         

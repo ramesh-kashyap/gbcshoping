@@ -70,4 +70,34 @@ public function add_category(Request $request)
 
     }
 
+
+    public function category_report(Request $request)
+    {
+      $limit = $request->limit ? $request->limit : paginationLimit();
+      $status = $request->status ? $request->status : null;
+      $search = $request->search ? $request->search : null;
+      $notes = Categorie::orderBy('id', 'ASC');
+  
+      if ($search <> null && $request->reset != "Reset") {
+        $notes = $notes->where(function ($q) use ($search) {
+          $q->Where('categoryname', 'LIKE', '%' . $search . '%')
+            // ->orWhere('username', 'LIKE', '%' . $search . '%')
+            // ->orWhere('email', 'LIKE', '%' . $search . '%')
+            // ->orWhere('phone', 'LIKE', '%' . $search . '%')
+            // ->orWhere('jdate', 'LIKE', '%' . $search . '%')
+            ->orWhere('status', 'LIKE', '%' . $search . '%');
+        });
+      }
+      $notes = $notes->orderBy('id', 'ASC')->paginate($limit)
+        ->appends([
+          'limit' => $limit
+        ]);
+  
+      $this->data['categories'] =  $notes;
+      $this->data['search'] = $search;
+      $this->data['page'] = 'admin.category.category-report';
+      return $this->admin_dashboard();
+    }
+  
+
 }

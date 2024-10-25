@@ -231,7 +231,7 @@ table#example {
 						</a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('admin.category') }}">Add Category</a></li>
-							<li><a href="{{ route('admin.pending-user') }}">Category Report</a></li>
+							<li><a href="{{ route('admin.category-report') }}">Category Report</a></li>
 
                         </ul>
                     </li>
