@@ -272,7 +272,6 @@
 				</div>
 			</div>	
 		</section>
-		<!--Account Screen End -->
 		<!--SideBar Setting Menu -->
 		@include('layouts.upnl.header')
 		<!--SideBar Setting Menu -->

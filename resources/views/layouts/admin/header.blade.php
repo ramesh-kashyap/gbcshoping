@@ -225,8 +225,19 @@ table#example {
 
                         </ul>
                     </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class="flaticon-050-info"></i>
+							<span class="nav-text">Category</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{ route('admin.category') }}">Add Category</a></li>
+							<li><a href="{{ route('admin.pending-user') }}">Category Report</a></li>
+
+                        </ul>
+                    </li>
+            
                    <!-- team dropdown -->
-                   <li class=""><a class="has-arrow team-icon"  href="javascript:void()" aria-expanded="false">
+                   <!-- <li class=""><a class="has-arrow team-icon"  href="javascript:void()" aria-expanded="false"> -->
                    
                 <!--<li><a href="{{route('admin.add-address')}}" class="ai-icon" aria-expanded="false">-->
                 <!--               <i class="flaticon-022-copy"></i>-->
@@ -259,23 +270,22 @@ table#example {
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-086-star"></i>
-							<span class="nav-text">Deposit </span>
+							<span class="nav-text">Product </span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('admin.deposit-request') }}">Pending Deposit</a></li>
-                            <li><a href="{{ route('admin.rejected-deposit') }}">Rejected Deposit</a></li>
-                            <li><a href="{{ route('admin.deposit-list') }}">Approved Deposit</a></li>
+                            <li><a href="{{ route('admin.deposit-request') }}">Add Product</a></li>
+                            <li><a href="{{ route('admin.rejected-deposit') }}">Product Report</a></li>
 
 
                         </ul>
                     </li>
 
 
-                <li><a href="{{route('admin.user-activation')}}" class="ai-icon" aria-expanded="false">
+                <!-- <li><a href="{{route('admin.user-activation')}}" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-072-printer"></i>
                         <span class="nav-text">User Activation </span>
                     </a>
-                </li>  
+                </li>   -->
                 <!--    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">-->
                 <!--        <i class="flaticon-043-menu"></i>-->
                 <!--        <span class="nav-text">Activities </span>-->
@@ -296,7 +306,7 @@ table#example {
                 </li>
                     
 
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <!-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-072-printer"></i>
 							<span class="nav-text">Profit Summary</span>
 						</a>
@@ -315,8 +325,8 @@ table#example {
 
 
                         </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    </li> -->
+                    <!-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-043-menu"></i>
 							<span class="nav-text">Withdrawal</span>
 						</a>
@@ -326,7 +336,7 @@ table#example {
                             <li><a href="{{route('admin.rejectedWithdrawal')}}">Rejected Withdrawal</a></li>
                             <li><a href="{{route('admin.approvedWithdrawal')}}">Approved Withdrawal</a></li>
                         </ul>
-                    </li>
+                    </li> -->
 
 
                     <li><a href="{{route('admin.changePassword')}}" class="ai-icon" aria-expanded="false">
