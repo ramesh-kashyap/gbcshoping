@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Zoop Retails Store</title>
+	<link rel="icon" href="{{asset('')}}assets/images/favicon/icon.png">
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/all.min.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/slick.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/style.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/media-query.css">
+</head>
+<body>
+	<div class="site-content">
+		<!-- Preloader Start -->
+		<div class="loader-mask">
+			<div class="circle">
+			</div>
+		</div>
+		<!-- Preloader End -->
+		<!-- Header Start -->
+		<header id="top-header">
+			<div class="container">
+				<div class="top-header-full">
+					<div class="back-btn">
+						<a href="javascript:history.go(-1)">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<mask id="mask0_330_7385" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+									<rect width="24" height="24" fill="black"/>
+								</mask>
+								<g mask="url(#mask0_330_7385)">
+									<path d="M15 18L9 12L15 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</g>
+							</svg>
+						</a>
+					</div>
+					<div class="header-title">
+						<p>Invite Friends</p>
+					</div>
+				</div>
+			</div>
+			<div class="navbar-boder"></div>
+		</header>
+		<!-- Header End -->
+		<!--  Invite Friend Section Start -->
+		<section id="invite-friend-page">
+			<div class="container">
+				<h1 class="d-none">Invite Friend</h1>
+				<h2 class="d-none">Invite Friend Page</h2>
+				<h3 class="d-none">Hidden</h3>
+				<div class="invite-friend-full mt-32">
+					<div class="invite-friend-wrapper">
+						<div class="invite-img">
+							<img src="{{asset('')}}assets/images/invite-friend/invite-1.png" alt="friend-img">
+						</div>
+						<div class="invite-content">
+							<h4 class="friend-name">Jenny Wilona</h4>
+							<p class="friend-no"><a href="tel:+1-200-555-0125">+1-200-555-0125</a></p>
+						</div>
+						<div class="friend-invite">
+							<div class="friend-select ">
+								<input type="checkbox"  id="select-friend1" name="select-language" >
+								<label class="custom-radio-sel-friend " for="select-friend1">Invited</label>
+							</div>
+						</div>
+					</div>
+					<div class="invite-friend-wrapper mt-16">
+						<div class="invite-img">
+							<img src="{{asset('')}}assets/images/invite-friend/invite-2.png" alt="friend-img">
+						</div>
+						<div class="invite-content">
+							<h4 class="friend-name">Joffrey Mott</h4>
+							<p class="friend-no"><a href="tel:+1-200-555-0125">+1-202-555-0365</a></p>
+						</div>
+						<div class="friend-invite" >
+							<div class="friend-select">
+								<input type="checkbox"  id="select-friend2" name="select-language" >
+								<label class="custom-radio-sel-friend " for="select-friend2">Invited</label>
+							</div>
+						</div>
+					</div>
+					<div class="invite-friend-wrapper mt-16">
+						<div class="invite-img">
+							<img src="{{asset('')}}assets/images/invite-friend/invite-3.png" alt="friend-img">
+						</div>
+						<div class="invite-content">
+							<h4 class="friend-name">Marci Senter</h4>
+							<p class="friend-no"><a href="tel:+1-200-555-0125">+1-300-452-6523</a></p>
+						</div>
+						<div class="friend-invite">
+							<div class="friend-select">
+								<input type="checkbox"  id="select-friend3" name="select-language" >
+								<label class="custom-radio-sel-friend " for="select-friend3">Invited</label>
+							</div>
+						</div>
+					</div>
+					<div class="invite-friend-wrapper mt-16">
+						<div class="invite-img">
+							<img src="{{asset('')}}assets/images/invite-friend/invite-4.png" alt="friend-img">
+						</div>
+						<div class="invite-content">
+							<h4 class="friend-name">Tynisha Obey</h4>
+							<p class="friend-no"><a href="tel:+1-200-555-0125">+1-202-555-0119</a></p>
+						</div>
+						<div class="friend-invite">
+							<div class="friend-select">
+								<input type="checkbox"  id="select-friend4" name="select-language" >
+								<label class="custom-radio-sel-friend " for="select-friend4">Invited</label>
+							</div>
+						</div>
+					</div>
+					<div class="invite-friend-wrapper mt-16">
+						<div class="invite-img">
+							<img src="{{asset('')}}assets/images/invite-friend/invite-5.png" alt="friend-img">
+						</div>
+						<div class="invite-content">
+							<h4 class="friend-name">Elanor Pore</h4>
+							<p class="friend-no"><a href="tel:+1-200-555-0125">+1-300-456-0123</a></p>
+						</div>
+						<div class="friend-invite">
+							<div class="friend-select">
+								<input type="checkbox"  id="select-friend5" name="select-language" >
+								<label class="custom-radio-sel-friend " for="select-friend5">Invited</label>
+							</div>
+						</div>
+					</div>
+					<div class="invite-friend-wrapper mt-16">
+						<div class="invite-img">
+							<img src="{{asset('')}}assets/images/invite-friend/invite-6.png" alt="friend-img">
+						</div>
+						<div class="invite-content">
+							<h4 class="friend-name">Tyra Dhillon</h4>
+							<p class="friend-no"><a href="tel:+1-200-555-0125">+1-200-555-0125</a></p>
+						</div>
+						<div class="friend-invite">
+							<div class="friend-select">
+								<input type="checkbox"  id="select-friend6" name="select-language" >
+								<label class="custom-radio-sel-friend " for="select-friend6">Invited</label>
+							</div>
+						</div>
+					</div>
+					<div class="invite-friend-wrapper mt-16">
+						<div class="invite-img">
+							<img src="{{asset('')}}assets/images/invite-friend/invite-7.png" alt="friend-img">
+						</div>
+						<div class="invite-content">
+							<h4 class="friend-name">Jamel Eusebio</h4>
+							<p class="friend-no"><a href="tel:+1-200-555-0125">+1-202-555-0365</a></p>
+						</div>
+						<div class="friend-invite">
+							<div class="friend-select">
+								<input type="checkbox"  id="select-friend7" name="select-language" >
+								<label class="custom-radio-sel-friend " for="select-friend7">Invited</label>
+							</div>
+						</div>
+					</div>
+					<div class="invite-friend-wrapper mt-16">
+						<div class="invite-img">
+							<img src="{{asset('')}}assets/images/invite-friend/invite-8.png" alt="friend-img">
+						</div>
+						<div class="invite-content">
+							<h4 class="friend-name">Tynisha Obey</h4>
+							<p class="friend-no"><a href="tel:+1-200-555-0125">+1-202-555-0365</a></p>
+						</div>
+						<div class="friend-invite">
+							<div class="friend-select">
+								<input type="checkbox"  id="select-friend8" name="select-language" >
+								<label class="custom-radio-sel-friend " for="select-friend8">Invited</label>
+							</div>
+						</div>
+					</div>
+					<div class="invite-friend-wrapper mt-16">
+						<div class="invite-img">
+							<img src="{{asset('')}}assets/images/invite-friend/invite-9.png" alt="friend-img">
+						</div>
+						<div class="invite-content">
+							<h4 class="friend-name">Pedro Huard</h4>
+							<p class="friend-no"><a href="tel:+1-200-555-0125">+1-200-555-0125</a></p>
+						</div>
+						<div class="friend-invite">
+							<div class="friend-select">
+								<input type="checkbox"  id="select-friend9" name="select-language" >
+								<label class="custom-radio-sel-friend " for="select-friend9">Invited</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Invite Friend Section End -->
+	</div>
+	<script src="{{asset('')}}assets/js/jquery-min-3.6.0.js"></script>
+	<script src="{{asset('')}}assets/js/slick.min.js"></script>
+	<script src="{{asset('')}}assets/js/bootstrap.bundle.min.js"></script>
+	<script src="{{asset('')}}assets/js/custom.js"></script>
+</body>
+</html>

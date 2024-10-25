@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +43,7 @@
 						<p>Cart</p>
 					</div>
 					<div class="skip_btn notification-badge-btn">
-						<a href="{{route('notification')}}">
+						<a href="{{route('with-promocode')}}">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<mask id="mask0_330_3241" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
 									<rect width="24" height="24" fill="white"/>
@@ -161,18 +160,18 @@
 					<div class="without-code-second-full">
 						<p>Promo Code:</p>
 						<div class="code-details mt-16">
-							<div class="enter-code-promocode">
-								<input type="text" placeholder="Enter Code Here">
+							<div class="enter-code-promocode1">
+								<input type="text" value="20firstorder">
 							</div>
-							<div class="code-plus-btn">
-								<a href="promocode.html">
-									<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<mask id="mask0_330_6097" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
-											<rect width="18" height="18" fill="white"></rect>
+							<div class="code-plus-btn code-cancel-btn">
+								<a href="javascript:void(0)">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<mask id="mask0_338_8002" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+											<rect width="24" height="24" fill="white"/>
 										</mask>
-										<g mask="url(#mask0_330_6097)">
-											<path d="M9 3.75V14.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-											<path d="M3.75 9H14.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+										<g mask="url(#mask0_338_8002)">
+											<path d="M17.2832 7.38359L7.38371 17.2831" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M7.38379 7.38359L17.2833 17.2831" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 										</g>
 									</svg>
 								</a>
@@ -212,7 +211,7 @@
 					<div class="without-code-last-full">
 						<div>
 							<p class="total-txt">Total:</p>
-							<p class="price-txt">$315.00</p>
+							<p class="price-txt">$255.00</p>
 						</div>
 						<div class="proceed-to check-btn">
 							<a href="{{route('checkout')}}">Proceed To Checkout</a>
@@ -223,15 +222,15 @@
 		</section>
 		<!-- Without Promocode Section End -->
 		<!--SideBar Setting Menu -->
-        @include('layouts.upnl.header')
+		<!-- @include('layouts.upnl.header') -->
 		<!--SideBar Setting Menu -->
-        <!--Bottom TabBar Section Start -->
-<div class="bottom-tabbar">
+		<!--Bottom TabBar Section Start -->
+		<div class="bottom-tabbar">
 			<div class="bottom-tabbar-full">
 				<nav>
-					<a href="{{route('Index')}}">
+					<a href="homescreen-1.html">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<mask id="mask0_330_3221" style="mask-type:alpha"   1maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
+							<mask id="mask0_330_3221" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
 							</mask>
 							<g mask="url(#mask0_330_3221)">
@@ -242,7 +241,7 @@
 							Home
 						</span>
 					</a>
-					<a href="{{route('search-product')}}">
+					<a href="search-screen.html">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5977" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -256,7 +255,7 @@
 							Search
 						</span>
 					</a>
-					<a href="{{route('user.cart')}}" class="active">
+					<a href="cart-without-promocode.html" class="active">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5464" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -272,7 +271,7 @@
 							Cart(2)
 						</span>
 					</a>
-					<a href="{{route('user.wishlist')}}" >
+					<a href="wishlist-screen.html" >
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5965" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -285,7 +284,7 @@
 							Wishlist
 						</span>
 					</a>
-					<a href="{{route('user.account-screen')}}">
+					<a href="account-screen.html">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5961" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
