@@ -226,6 +226,10 @@ Route::get('/admin-logout', [App\Http\Controllers\Admin\AdminLogin::class, 'admi
 Route::group(['middleware' => ['admin']], function ()
 {
 
+  Route::get('/product', [App\Http\Controllers\Admin\ProductController::class, 'product'])->name('admin.product');
+  Route::post('/submit-product', [App\Http\Controllers\Admin\ProductController::class, 'add_product'])->name('submit-product');
+
+
   Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'category'])->name('admin.category');
   Route::post('/add-category', [App\Http\Controllers\Admin\CategoryController::class, 'add_category'])->name('admin.add-category');
 
