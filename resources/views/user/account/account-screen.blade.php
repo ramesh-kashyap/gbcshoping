@@ -277,8 +277,7 @@
 		<!--SideBar Setting Menu -->
 		@include('layouts.upnl.header')
 		<!--SideBar Setting Menu -->
-		@include('layouts.upnl.header')
-		<!--Bottom TabBar Section Start -->
+		
 <div class="bottom-tabbar">
 			<div class="bottom-tabbar-full">
 				<nav>
