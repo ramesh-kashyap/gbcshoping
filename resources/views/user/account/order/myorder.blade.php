@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Zoop Retails Store</title>
+	<link rel="icon" href="{{asset('')}}assets/images/favicon/icon.png">
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/all.min.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/slick.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/style.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/media-query.css">
+</head>
+<body>
+	<div class="site-content">
+		<!-- Preloader Start -->
+		<div class="loader-mask">
+			<div class="circle">
+			</div>
+		</div>
+		<!-- Preloader End -->
+		<!-- Header Start -->
+		<header id="top-header">
+			<div class="container">
+				<div class="top-header-full">
+					<div class="back-btn">
+						<a href="javascript:history.go(-1)">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<mask id="mask0_330_7385" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+									<rect width="24" height="24" fill="black"/>
+								</mask>
+								<g mask="url(#mask0_330_7385)">
+									<path d="M15 18L9 12L15 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</g>
+							</svg>
+						</a>
+					</div>
+					<div class="header-title">
+						<p>My Orders</p>
+					</div>
+				</div>
+			</div>
+			<div class="navbar-boder"></div>
+		</header>
+		<!-- Header End -->
+		<!-- Order Screen Start -->
+		<section id="order2-screen">
+			<div class="container">
+				<h1 class="d-none">Order Screen</h1>
+				<div class="order2-screen-full mt-24">
+					<div class="order2-screen-full-wrapp">
+						<ul class="nav nav-pills mb-3 order-screen2-tab" id="order-status" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button class="nav-link order-screen2-tab-btn active  " id="order2-ongoing" data-bs-toggle="pill" data-bs-target="#ongoing-status" type="button" role="tab"  aria-selected="true">Ongoing</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link order-screen2-tab-btn" id="order2-completed" data-bs-toggle="pill" data-bs-target="#completed-status" type="button" role="tab"  aria-selected="false">Completed</button>
+							</li>
+						</ul>
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="ongoing-status" role="tabpanel"  tabindex="0">
+								<div class="ongoing-status-sec">
+									<div class="ongoing-status-sec-full">
+										<div class="ongoing-img-sec">
+											<img src="{{asset('')}}assets/images/order-screen/order-1.png" alt="clothes-img">
+										</div>
+										<div class="ongoing-content-sec">
+											<div class="ongoing-content-sec-full">
+												<p class="status-txt1">Preneum Women's Georgette...</p>
+												<div class="status-txt2">
+													<span>Color:tilt</span>
+													<span>Size:M</span>
+													<span>Qty:1</span>
+												</div>
+												<div class="status-txt3">
+													<p >In Delivery</p>
+												</div>
+												<div class="status-price-sec">
+													<div class="status-price-sec-full">
+														<div class="status-txt4">
+															<p>$150.00</p>
+														</div>
+														<div class="status-txt5">
+															<a href="{{route('track-order')}}">
+																<p>Track Order</p>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="ongoing-status-sec">
+									<div class="ongoing-status-sec-full">
+										<div class="ongoing-img-sec">
+											<img src="{{asset('')}}assets/images/order-screen/order-2.png" alt="watch-img">
+										</div>
+										<div class="ongoing-content-sec">
+											<div class="ongoing-content-sec-full">
+												<p class="status-txt1">Go Buzz Bluetooth Calling Sm...</p>
+												<div class="status-txt2">
+													<span>Color:black</span>
+													<span>Qty:1</span>
+												</div>
+												<div class="status-txt3">
+													<p >In Delivery</p>
+												</div>
+												<div class="status-price-sec">
+													<div class="status-price-sec-full">
+														<div class="status-txt4">
+															<p>$150.00</p>
+														</div>
+														<div class="status-txt5">
+															<a href="order-track.html">
+																<p>Track Order</p>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="completed-status" role="tabpanel"  tabindex="0">
+								<div class="ongoing-status-sec">
+									<div class="ongoing-status-sec-full">
+										<div class="ongoing-img-sec">
+											<img src="{{asset('')}}assets/images/order-screen/complete-1.png" alt="watch-img">
+										</div>
+										<div class="ongoing-content-sec">
+											<div class="ongoing-content-sec-full">
+												<p class="status-txt1">Fire-Boltt Phoenix Smart Wat...</p>
+												<div class="status-txt2">
+													<span>Color:tilt</span>
+													<span>Qty:1</span>
+												</div>
+												<div class="status-txt3">
+													<p >Delivered</p>
+												</div>
+												<div class="status-price-sec">
+													<div class="status-price-sec-full">
+														<div class="status-txt4">
+															<p>$150.00</p>
+														</div>
+														<div class="status-txt5">
+															<a href="leave-review.html">
+																<p>Leave Review</p>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="ongoing-status-sec">
+									<div class="ongoing-status-sec-full">
+										<div class="ongoing-img-sec">
+											<img src="{{asset('')}}assets/images/order-screen/complete-2.png" alt="cosmetic-img">
+										</div>
+										<div class="ongoing-content-sec">
+											<div class="ongoing-content-sec-full">
+												<p class="status-txt1">Girl’s Alloy Rose Gold Plated D...</p>
+												<div class="status-txt2">
+													<span>Color:Rose</span>
+													<span>Qty:1</span>
+												</div>
+												<div class="status-txt3">
+													<p>Delivered</p>
+												</div>
+												<div class="status-price-sec">
+													<div class="status-price-sec-full">
+														<div class="status-txt4">
+															<p>$450.00</p>
+														</div>
+														<div class="status-txt5">
+															<a href="leave-review.html">
+																<p>Leave Review</p>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Order Screen End -->
+	</div>
+	<script src="{{asset('')}}assets/js/jquery-min-3.6.0.js"></script>
+	<script src="{{asset('')}}assets/js/slick.min.js"></script>
+	<script src="{{asset('')}}assets/js/bootstrap.bundle.min.js"></script>
+	<script src="{{asset('')}}assets/js/custom.js"></script>
+</body>
+</html>
