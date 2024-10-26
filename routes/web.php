@@ -228,6 +228,8 @@ Route::group(['middleware' => ['admin']], function ()
 
   Route::get('/product', [App\Http\Controllers\Admin\ProductController::class, 'product'])->name('admin.product');
   Route::post('/submit-product', [App\Http\Controllers\Admin\ProductController::class, 'add_product'])->name('submit-product');
+  Route::get('/product-report', [App\Http\Controllers\Admin\ProductController::class, 'product_report'])->name('product-report');
+  Route::get('/edit-product', [App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('edit-product');
 
 
   Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'category'])->name('admin.category');

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Categorie;
 use App\Models\Product;
 use Illuminate\Support\Facades\Validator;
-use Log;
+use Illuminate\Support\Facades\Log;
 
 
 
@@ -85,5 +85,57 @@ class ProductController extends Controller
       }
 
  }
+
+ public function product_report(Request $request)
+ {
+     $limit = $request->limit ? $request->limit : paginationLimit();
+     $status = $request->status ? $request->status : null;
+     $search = $request->search ? $request->search : null;
+ 
+     // Select specific columns
+     $notes = Product::select('productName', 'productPrice', 'image', 'category_id', 'productDiscription')
+                     ->orderBy('id', 'ASC');
+ 
+     if ($search !== null && $request->reset != "Reset") {
+         $notes = $notes->where(function ($q) use ($search) {
+             $q->where('productName', 'LIKE', '%' . $search . '%')
+               ->orWhere('productPrice', 'LIKE', '%' . $search . '%')
+               ->orWhere('category_id', 'LIKE', '%' . $search . '%')
+               ->orWhere('image', 'LIKE', '%' . $search . '%')
+               ->orWhere('productDiscription', 'LIKE', '%' . $search . '%');
+         });
+     }
+ 
+     // Paginate the results
+     $notes = $notes->paginate($limit)
+                    ->appends(['limit' => $limit]);
+ 
+     // Assuming 'category_id' references a categories table, you might want to fetch the category names
+     $notes->each(function ($note) {
+         $note->category_name = product::find($note->category_id)->name ?? 'N/A'; 
+         $note->image_url = asset('storage/uploads/' . $note->image);
+         // Adjust according to your category model
+     });
+ 
+     $this->data['products'] = $notes;
+     $this->data['search'] = $search;
+     $this->data['page'] = 'admin.product.product-report';
+     return $this->admin_dashboard();
+ }
+ 
+
+
+  // Destroy method
+  public function destroy($id)
+  {
+      // Find the product by its ID
+      $product = Product::findOrFail($id);
+      
+      // Delete the product
+      $product->delete();
+      
+      // Redirect back with a success message
+      return redirect()->route('product.index')->with('success', 'Product deleted successfully.');
+  }
 
 }
