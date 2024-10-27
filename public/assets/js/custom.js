@@ -115,7 +115,7 @@ $(window).on("load" , function () {
 
 });
 /*-------------------------------------Anchore Tag Link Added-------------------------------------*/
-$(".cloth-redirect, .best-seller-redirect").wrap('<a href="single-cloths.html"></a>');
+// $(".cloth-redirect, .best-seller-redirect").wrap('<a href="{{ route(&quot;details&quot;) }}"></a>');
 $(".shoes-redirect").wrap('<a href="single-shoes.html"></a>');
 $(".electronic-redirect").wrap('<a href="single-electronics.html"></a>');
 $(".offer-1, .homepage1-tab-details-wrapper").wrap('<a href="clothes-screen.html"></a>');

@@ -54,9 +54,14 @@ Route::get('/register_sucess', [App\Http\Controllers\Register::class, 'index'])-
 
 Route::get('/Index', [App\Http\Controllers\UserPanel\HomeController::class, 'index'])->name('Index');
 Route::get('/search-product', [App\Http\Controllers\UserPanel\SearchController::class, 'search_product'])->name('search-product');
+Route::get('/filter-screen', [App\Http\Controllers\UserPanel\SearchController::class, 'filter'])->name('filter-screen');
 
 Route::get('/wishlist', [App\Http\Controllers\UserPanel\CartController::class, 'wishlist'])->name('user.wishlist');
 
+
+Route::get('/clothes-screen', [App\Http\Controllers\UserPanel\cateController::class, 'clothes'])->name('clothes-screen');
+Route::get('/electronic-screen', [App\Http\Controllers\UserPanel\cateController::class, 'electronic'])->name('electronic-screen');
+Route::get('/details', [App\Http\Controllers\UserPanel\cateController::class, 'details'])->name('details');
 
 Route::get('/notification', [App\Http\Controllers\UserPanel\notification::class, 'notification'])->name('notification');
 

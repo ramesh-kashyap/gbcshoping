@@ -11,4 +11,10 @@ class SearchController extends Controller
     {
 
         return view('user.search.search-product');
-    }}
+    }
+    public function filter()
+    {
+
+        return view('user.search.filter');
+    }
+}

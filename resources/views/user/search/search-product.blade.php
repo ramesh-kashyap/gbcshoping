@@ -79,7 +79,7 @@
 					</div>
 					<div class="search-filter">
 						<div class="search-filter-btn">
-							<a href="filter-screen.html">
+							<a href="{{route('filter-screen')}}">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<mask id="mask0_330_5185" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
 										<rect width="24" height="24" fill="white"/>
