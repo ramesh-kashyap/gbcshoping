@@ -232,8 +232,8 @@ Route::group(['middleware' => ['admin']], function ()
 
   Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'category'])->name('admin.category');
   Route::post('/add-category', [App\Http\Controllers\Admin\CategoryController::class, 'add_category'])->name('admin.add-category');
-  Route::get('/admin.category-report', [App\Http\Controllers\Admin\CategoryController::class, 'category_report'])->name('admin.category-report');
- Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard::class, 'index'])->name('admin.dashboard');
+  Route::get('/category-report', [App\Http\Controllers\Admin\CategoryController::class, 'category_report'])->name('admin.category-report');
+  Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard::class, 'index'])->name('admin.dashboard');
    Route::get('/loginWithadmin', [App\Http\Controllers\Admin\Dashboard::class, 'loginWithadmin'])->name('admin.loginWithadmin');
  Route::get('/changePassword', [App\Http\Controllers\Admin\Dashboard::class, 'changePassword'])->name('admin.changePassword');
  Route::get('/add-price', [App\Http\Controllers\Admin\Dashboard::class, 'addPrice'])->name('admin.add-price');
