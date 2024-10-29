@@ -5,6 +5,8 @@ namespace App\Http\Controllers\UserPanel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categorie;
+use App\Models\Product;
+
 
 class HomeController extends Controller
 {
@@ -26,4 +28,14 @@ class HomeController extends Controller
 
         return view('user.add-cart');
     }
+
+    public function show_product($id)
+{
+    // Get the specific product by ID
+    $product = Product::findOrFail($id);
+    
+    // Pass product data to the view
+    return view('user.add-cart', compact('product'));
+}
+
 }

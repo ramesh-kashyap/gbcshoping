@@ -71,7 +71,7 @@
 						<div class="carousel-inner">
 							<div class="carousel-item active">
 								<div class="single-clothes-slide-img">
-									<img src="{{asset('')}}assets/images/single-clothes/clothes-1.png" alt="clothes-img">
+									<img src="{{ asset('uploads/images/' . $product->image) }}" alt="clothes-img">
 								</div>
 								<div class="single-clothes-favourite">
 									<a href="javascript:void(0);" class="item-bookmark" tabindex="-1">
@@ -81,7 +81,7 @@
 							</div>
 							<div class="carousel-item">
 								<div class="single-clothes-slide-img">
-									<img src="{{asset('')}}assets/images/single-clothes/clothes-1.png" alt="clothes-img">
+									<img src="{{ asset('uploads/images/' . $product->image) }}" alt="clothes-img">
 								</div>
 								<div class="single-clothes-favourite">
 									<a href="javascript:void(0);" class="item-bookmark" tabindex="-1">
@@ -98,7 +98,7 @@
 							</div>
 							<div class="carousel-item">
 								<div class="single-clothes-slide-img">
-									<img src="{{asset('')}}assets/images/single-clothes/clothes-1.png" alt="clothes-img">
+									<img src="{{ asset('uploads/images/' . $product->image) }}" alt="clothes-img">
 								</div>
 								<div class="single-clothes-favourite">
 									<a href="javascript:void(0);" class="item-bookmark" tabindex="-1">

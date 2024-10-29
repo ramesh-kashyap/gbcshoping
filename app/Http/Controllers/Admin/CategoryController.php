@@ -25,7 +25,9 @@ public function add_category(Request $request)
         try{
 
              $validation =  Validator::make($request->all(), [
-            'categoryname' => 'required',    
+            'categoryname' => 'required',   
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg', // Validation for image
+ 
             
         ]);
 
@@ -36,12 +38,19 @@ public function add_category(Request $request)
         }
 
        
+    if ($request->hasFile('image')) {
+      $image = $request->file('image');
+      $imageName = time() . '_' . $image->getClientOriginalName();
+      $image->move(public_path('uploads/images'), $imageName);
+      }
+
        
               
              
                    $data = [
                     
                         'categoryname' => $request->categoryname,
+                        'image' => $imageName,
     
                     ];
                    $payment =  Categorie::Create($data);

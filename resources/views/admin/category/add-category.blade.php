@@ -20,19 +20,26 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form action="{{route('admin.add-category')}}" method="POST">
-                                     {{ csrf_field() }}
-                                        <div class="row">
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Category Name</label>
-                                                <input class="form-control" id="inputEmail3" placeholder="Category name" type="text" name="categoryname">
-                                            </div>
+                                @if ($errors->any())
+     @foreach ($errors->all() as $error)
+         <div>{{$error}}</div>
+     @endforeach
+ @endif
+                                <form action="{{ route('admin.add-category') }}" method="POST" enctype="multipart/form-data">
+    {{ csrf_field() }}
+    <div class="row">
+        <div class="mb-3 col-md-12">
+            <label class="form-label">Category Name</label>
+            <input class="form-control" id="productName" placeholder="Category Name" type="text" name="categoryname">
+        </div>
+        <div class="mb-3 col-md-12">
+            <label class="form-label">Category Image</label>
+            <input class="form-control" id="image" placeholder="Category Image" type="file" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
 
-                                        </div>
-     
-                                        
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                    </form>
                                 </div>
                             </div>
                         </div>

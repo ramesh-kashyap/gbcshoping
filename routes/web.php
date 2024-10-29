@@ -83,6 +83,8 @@ Route::middleware('auth')->group(function ()
   Route::get('/add-cart', [App\Http\Controllers\UserPanel\HomeController::class, 'add_cart'])->name('user.add-cart');
 
   Route::get('/all-product', [App\Http\Controllers\UserPanel\HomeController::class, 'all_product'])->name('user.all-product');
+// Route to show the product details page
+Route::get('/show-product/{id}', [App\Http\Controllers\UserPanel\HomeController::class, 'show_product'])->name('user.show-product');
 
 Route::get('/cart', [App\Http\Controllers\UserPanel\CartController::class, 'cart'])->name('user.cart');
 Route::get('/checkout-details', [App\Http\Controllers\UserPanel\CartController::class, 'checkout_details'])->name('user.checkout-details');

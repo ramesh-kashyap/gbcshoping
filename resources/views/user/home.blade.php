@@ -458,70 +458,77 @@
                             </div>
                         </div>
                     </div>
-					<div class="homescreen-eight-wrapper-bottom mt-16">
-    <div class="homescreen-eight-bottom-full">
-        <ul class="nav nav-pills mb-3" id="homepage1-tab" role="tablist">
-            @foreach($categories as $category)
-            <li class="nav-item" role="presentation">
-                <button class="nav-link custom-home1-tab-btn {{ $loop->first ? 'active' : '' }}" 
-                        id="pills-tab" 
-                        data-bs-toggle="pill" 
-                        data-bs-target="#pills-{{ $category->id }}" 
-                        type="button" role="tab" 
-                        aria-selected="{{ $loop->first ? 'true' : 'false' }}">
-                    {{ $category->categoryname }}
-                </button>
-            </li>
-            @endforeach
-        </ul>
-        
-        <div class="tab-content" id="pills-tabContent">
-            @foreach($categories as $category)
-            <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" 
-                 id="pills-{{ $category->id }}" 
-                 role="tabpanel" 
-                 tabindex="0">
-                 
-                <div class="container">
-                    <div class="wishlist-wrapper-full">
-                        @foreach($category->products as $product)
-                        <div class="shoes-screen-wrapper electronic-redirect">
-                            <div class="shoes-screen-top">
-                                <div class="shoes-img wishlist-img">
-                                    <img style="width:280px;height:120px" src="{{ asset('uploads/images/' . $product->image) }}" 
-                                         alt="{{ $product->name }}">
-                                </div>
-                                <div class="clothes-favourite">
-                                    <a href="javascript:void(0);" class="item-bookmark" tabindex="-1">
-                                        <img src="{{asset('')}}assets/images/icons/unfill-heart.svg" alt="unfill-heart">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="shoes-screen-bottom">
-                                <div class="shoes-screen-bottom-full">
-                                    <div class="shoes-screen-first">
-                                        <h3>{{ $product->productName }}</h3>
-                                    </div>
-                                    <div class="shoes-screen-second">
-                                        <div class="cloth-txt1">
-                                            <span>${{ $product->productPrice }}</span>
+                    <div class="homescreen-eight-wrapper-bottom mt-16">
+                        <div class="homescreen-eight-bottom-full">
+                            <ul class="nav nav-pills mb-3" id="homepage1-tab" role="tablist">
+                                @foreach($categories as $category)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link custom-home1-tab-btn {{ $loop->first ? 'active' : '' }}"
+                                        id="pills-tab" data-bs-toggle="pill" data-bs-target="#pills-{{ $category->id }}"
+                                        type="button" role="tab" aria-selected="{{ $loop->first ? 'true' : 'false' }}">
+                                        {{ $category->categoryname }}
+                                    </button>
+                                </li>
+                                @endforeach
+                            </ul>
+
+                            <div class="tab-content" id="pills-tabContent">
+                                @foreach($categories as $category)
+                                <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+                                    id="pills-{{ $category->id }}" role="tabpanel" tabindex="0">
+
+                                    <div class="container">
+                                        <div class="wishlist-wrapper-full">
+                                            @foreach($category->products as $product)
+                                            <div class="shoes-screen-wrapper electronic-redirect">
+                                                <div class="shoes-screen-top">
+                                                <a href="{{ route('user.show-product', $product->id) }}">
+                                                    <div class="shoes-img wishlist-img"
+                                                        style="max-width:292px;max-height:180px;">
+                                                        
+
+                                                        <img style="width:100%;height:100%;" class="responsive-img"
+                                                            src="{{ asset('uploads/images/' . $product->image) }}"
+                                                            alt="{{ $product->name }}">
+                                                           
+
+                                                    </div>
+                                                    </a>
+                                                    <div class="clothes-favourite">
+                                                        <a href="javascript:void(0);" class="item-bookmark"
+                                                            tabindex="-1">
+                                                            <img src="{{asset('')}}assets/images/icons/unfill-heart.svg"
+                                                                alt="unfill-heart">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="shoes-screen-bottom">
+                                                    <div class="shoes-screen-bottom-full">
+                                                        <div class="shoes-screen-first">
+                                                            <h3>{{ $product->productName }}</h3>
+                                                        </div>
+                                                        <div class="shoes-screen-second">
+                                                            <div class="cloth-txt1">
+                                                                <span>${{ $product->productPrice }}</span>
+                                                            </div>
+                                                            <div class="shoes-screen-second-full">
+                                                                <span class="cloth-star"><img
+                                                                        src="{{asset('')}}assets/images/icons/orange-star.svg"
+                                                                        alt="star-img"></span>
+                                                                <span class="cloth-txt2">4.8</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="shoes-screen-second-full">
-                                            <span class="cloth-star"><img src="{{asset('')}}assets/images/icons/orange-star.svg" alt="star-img"></span>
-                                            <span class="cloth-txt2">4.8</span>
-                                        </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
-                        @endforeach
                     </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
 
                 </div>
             </div>
@@ -1017,7 +1024,7 @@
         <div class="bottom-tabbar">
             <div class="bottom-tabbar-full">
                 <nav>
-                    <a href="homescreen-2.html" class="active">
+                    <a href="{{route('Index')}}" class="active">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_330_3221" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                                 width="18" height="18">
@@ -1033,7 +1040,7 @@
                             Home
                         </span>
                     </a>
-                    <a href="search-screen.html">
+                    <a href="{{route('search-product')}}">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_330_5977" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                                 width="18" height="18">
@@ -1051,7 +1058,7 @@
                             Search
                         </span>
                     </a>
-                    <a href="cart-without-promocode.html">
+                    <a href="{{route('user.cart')}}">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_330_5464" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                                 width="18" height="18">
@@ -1074,7 +1081,7 @@
                             Cart(2)
                         </span>
                     </a>
-                    <a href="wishlist-screen.html">
+                    <a href="{{route('user.wishlist')}}">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_330_5965" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                                 width="18" height="18">
@@ -1090,7 +1097,7 @@
                             Wishlist
                         </span>
                     </a>
-                    <a href="account-screen.html">
+                    <a href="{{route('user.account-screen')}}">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_330_5961" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                                 width="18" height="18">
@@ -1111,6 +1118,9 @@
         </div>
         <!--Bottom TabBar Section End -->
     </div>
+    <style>
+
+    </style>
     <script src="{{asset('')}}assets/js/jquery-min-3.6.0.js"></script>
     <script src="{{asset('')}}assets/js/slick.min.js"></script>
     <script src="{{asset('')}}assets/js/bootstrap.bundle.min.js"></script>
