@@ -273,8 +273,8 @@ table#example {
 							<span class="nav-text">Product </span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('admin.deposit-request') }}">Add Product</a></li>
-                            <li><a href="{{ route('admin.rejected-deposit') }}">Product Report</a></li>
+                            <li><a href="{{ route('admin.product') }}">Add Product</a></li>
+                            <li><a href="{{ route('product-report') }}">Product Report</a></li>
 
 
                         </ul>

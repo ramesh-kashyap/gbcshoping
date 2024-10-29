@@ -54,9 +54,14 @@ Route::get('/register_sucess', [App\Http\Controllers\Register::class, 'index'])-
 
 Route::get('/Index', [App\Http\Controllers\UserPanel\HomeController::class, 'index'])->name('Index');
 Route::get('/search-product', [App\Http\Controllers\UserPanel\SearchController::class, 'search_product'])->name('search-product');
+Route::get('/filter-screen', [App\Http\Controllers\UserPanel\SearchController::class, 'filter'])->name('filter-screen');
 
 Route::get('/wishlist', [App\Http\Controllers\UserPanel\CartController::class, 'wishlist'])->name('user.wishlist');
 
+
+Route::get('/clothes-screen', [App\Http\Controllers\UserPanel\cateController::class, 'clothes'])->name('clothes-screen');
+Route::get('/electronic-screen', [App\Http\Controllers\UserPanel\cateController::class, 'electronic'])->name('electronic-screen');
+Route::get('/details', [App\Http\Controllers\UserPanel\cateController::class, 'details'])->name('details');
 
 Route::get('/notification', [App\Http\Controllers\UserPanel\notification::class, 'notification'])->name('notification');
 
@@ -230,6 +235,8 @@ Route::group(['middleware' => ['admin']], function ()
 
   Route::get('/product', [App\Http\Controllers\Admin\ProductController::class, 'product'])->name('admin.product');
   Route::post('/submit-product', [App\Http\Controllers\Admin\ProductController::class, 'add_product'])->name('submit-product');
+  Route::get('/product-report', [App\Http\Controllers\Admin\ProductController::class, 'product_report'])->name('product-report');
+  Route::get('/edit-product', [App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('edit-product');
 
 
   Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'category'])->name('admin.category');
