@@ -40,6 +40,20 @@
                                         <input class="form-control" id="inputEmail3" placeholder="Category name" type="file" name="image">
                                     </div>
                                     <div class="mb-3 col-md-12">
+                                        <label class="form-label">Color Id</label>
+                                    
+
+                                        <select class="form-control" name="colorId">
+                                            <option value="">Select Color</option>
+                                            @foreach ($color as $value)
+                                                <option value="{{ $value->id }}">{{ $value->color_name }}</option>
+                                            @endforeach                                            
+
+                                        </select>
+                                     
+
+                                    </div>
+                                    <div class="mb-3 col-md-12">
                                         <label class="form-label">Category Id</label>
                                     
 

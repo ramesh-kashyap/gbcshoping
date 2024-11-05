@@ -85,9 +85,11 @@ Route::prefix('user')->group(function ()
 {
 Route::middleware('auth')->group(function ()
 {
+
+  Route::post('/fetch-product-by-color', [App\Http\Controllers\UserPanel\HomeController::class, 'fetchProductByColor'])->name('fetch.product.by.color');
+
   Route::get('/add-cart', [App\Http\Controllers\UserPanel\HomeController::class, 'add_cart'])->name('user.add-cart');
 
-  Route::get('/all-product', [App\Http\Controllers\UserPanel\HomeController::class, 'all_product'])->name('user.all-product');
 // Route to show the product details page
 Route::get('/show-product/{id}', [App\Http\Controllers\UserPanel\HomeController::class, 'show_product'])->name('user.show-product');
 
@@ -119,9 +121,6 @@ Route::get('/without-promocode', [App\Http\Controllers\UserPanel\accountCtroller
 Route::get('/logouts', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'logouts'])->name('logouts');
 
 
-
-
-
 Route::get('/dashboard', [App\Http\Controllers\UserPanel\Dashboard::class, 'index'])->name('user.dashboard');
 Route::get('/tradeOn', [App\Http\Controllers\UserPanel\Dashboard::class, 'tradeOn'])->name('user.tradeOn');
 Route::get('/market', [App\Http\Controllers\UserPanel\Dashboard::class, 'market'])->name('user.market');
@@ -150,7 +149,6 @@ Route::get('/BankDetail', [App\Http\Controllers\UserPanel\Profile::class, 'BankD
 Route::post('/bank-update', [App\Http\Controllers\UserPanel\Profile::class, 'bank_profile_update'])->name('user.bank-update');
 Route::post('/change-trxpasswword', [App\Http\Controllers\UserPanel\Profile::class, 'change_trxpassword_post'])->name('user.change-trxpasswword');
 // end profile
-
 
 // add fund
 Route::get('/confirm-fund', [App\Http\Controllers\UserPanel\AddFund::class, 'confirmfund'])->name('user.confirmfund');
@@ -232,6 +230,8 @@ Route::post('LoginAction', [App\Http\Controllers\Admin\AdminLogin::class, 'admin
 Route::get('/admin-logout', [App\Http\Controllers\Admin\AdminLogin::class, 'admin_sign_out'])->name('admin.admin-logout');
 Route::group(['middleware' => ['admin']], function ()
 {
+  Route::get('/add-color', [App\Http\Controllers\Admin\ProductController::class, 'add_color'])->name('admin.add-color');
+  Route::post('/submit-colorName', [App\Http\Controllers\Admin\ProductController::class, 'submit_colorName'])->name('submit-colorName');
 
   Route::get('/product', [App\Http\Controllers\Admin\ProductController::class, 'product'])->name('admin.product');
   Route::post('/submit-product', [App\Http\Controllers\Admin\ProductController::class, 'add_product'])->name('submit-product');

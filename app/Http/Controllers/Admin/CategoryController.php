@@ -43,7 +43,6 @@ public function add_category(Request $request)
       $imageName = time() . '_' . $image->getClientOriginalName();
       $image->move(public_path('uploads/images'), $imageName);
       }
-
        
               
              
@@ -53,8 +52,9 @@ public function add_category(Request $request)
                         'image' => $imageName,
     
                     ];
-                   $payment =  Categorie::Create($data);
-                    
+                   $payment =  Categorie::insert($data);
+
+
                     
             $notify[] = ['success','Categpry Name Request Submited successfully'];
     

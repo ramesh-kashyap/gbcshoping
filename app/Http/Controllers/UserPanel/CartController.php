@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    
     public function cart()
     {
+        // Retrieve cart data from session
+
         return view('user.cart.cart-details');
     }
     public function checkout_details()
@@ -24,3 +27,4 @@ class CartController extends Controller
         return view('user.wishlist.wishlist-screen');
     }
 }
+

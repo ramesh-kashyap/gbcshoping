@@ -275,6 +275,8 @@ table#example {
                         <ul aria-expanded="false">
                             <li><a href="{{ route('admin.product') }}">Add Product</a></li>
                             <li><a href="{{ route('product-report') }}">Product Report</a></li>
+                            <li><a href="{{ route('admin.add-color') }}">Add Product Color</a></li>
+
 
 
                         </ul>

@@ -58,8 +58,14 @@
 							<h1>Are you sure you want to log out?</h1>
 						</div>
 						<div class="sure-log-out-btn">
-							<a href="{{route('logout')}}">Sure</a>
-						</div>
+						<a href="{{ route('logout') }}" onclick="clearCartOnLogout()">Sure</a>
+
+<script>
+function clearCartOnLogout() {
+    // Clear cart items from localStorage on logout
+    localStorage.removeItem('cartProducts');
+}
+</script>						</div>
 					</div>
 					<div class="cancel-log-out-btn ">
 						<a href="{{route('user.account-screen')}}">Cancel</a>

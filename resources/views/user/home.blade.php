@@ -101,7 +101,7 @@
                             <div class="carousel-item active">
                                 <div class="home2-slider-item">
                                     <div class="home2-overlay"></div>
-                                    <img src="{{asset('')}}assets/images/homescreen2/slider-1.png" alt="slider-img"
+                                    <img src="{{asset('')}}assets\images\slider-1.png"" alt="slider-img"
                                         class="d-block w-100 img-fluid">
                                     <div class="home2-slider-img-content">
                                         <h2>Spring Discounts Up To 30% Off</h2>
@@ -115,7 +115,7 @@
                             <div class="carousel-item">
                                 <div class="home2-slider-item">
                                     <div class="home2-overlay"></div>
-                                    <img src="{{asset('')}}assets/images/homescreen2/slider-1.png" alt="slider-img"
+                                    <img src="{{asset('')}}assets\images\slider-1.png" alt="slider-img"
                                         class="d-block w-100 img-fluid">
                                     <div class="home2-slider-img-content">
                                         <h2>Spring Discounts Up To 30% Off</h2>
@@ -129,7 +129,7 @@
                             <div class="carousel-item">
                                 <div class="home2-slider-item">
                                     <div class="home2-overlay"></div>
-                                    <img src="{{asset('')}}assets/images/homescreen2/slider-1.png" alt="slider-img"
+                                    <img src="{{asset('')}}assets\images\slider-1.png" alt="slider-img"
                                         class="d-block w-100 img-fluid">
                                     <div class="home2-slider-img-content">
                                         <h2>Spring Discounts Up To 30% Off</h2>
@@ -162,9 +162,11 @@
                     </div>
                     <div class="homescreen-sixth-wrapper-bottom mt-16">
                         <div class="homescreen-sixth-wrapper-slider">
+                        @foreach($allProducts as $allProduct)
+
                             <div class="featured-slide">
                                 <div class="featured-slide-top redirect-electronic">
-                                    <img src="{{asset('')}}assets/images/homescreen-1/featured-1.png"
+                                    <img  class="responsive-img"src="{{ asset('uploads/images/' . $allProduct->image) }}"
                                         alt="featured-img">
                                     <div class="home-page-featured-favourite">
                                         <a href="javascript:void(0);" class="item-bookmark" tabindex="-1">
@@ -174,10 +176,10 @@
                                     </div>
                                 </div>
                                 <div class="seller-slide-bottom-content redirect-electronic">
-                                    <h3 class="featured-name">Samsung Galaxy A14 5G (8 GB RAM, 128 GB RO</h3>
+                                    <h3 class="featured-name">{{ $allProduct->ProductDiscription }}</h3>
                                     <div class="seller-bottom-price">
                                         <div class="seller-bottom-price1">
-                                            <span class="seller-price-txt1">$3500.00</span>
+                                            <span class="seller-price-txt1">${{ $allProduct->productPrice }}</span>
                                         </div>
                                         <div class="seller-bottom-price1">
                                             <span class="seller-star"><img
@@ -188,58 +190,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="featured-slide">
-                                <div class="featured-slide-top redirect-electronic">
-                                    <img src="{{asset('')}}assets/images/homescreen-1/featured-2.png"
-                                        alt="featured-img">
-                                    <div class="home-page-featured-favourite">
-                                        <a href="javascript:void(0);" class="item-bookmark" tabindex="-1">
-                                            <img src="{{asset('')}}assets/images/icons/unfill-heart.svg"
-                                                alt="unfill-heart">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="seller-slide-bottom-content redirect-electronic">
-                                    <h3 class="featured-name">Full Body Mini Massager Gun (15 Mins Auto Off </h3>
-                                    <div class="seller-bottom-price">
-                                        <div class="seller-bottom-price1">
-                                            <span class="seller-price-txt1">$90.00</span>
-                                        </div>
-                                        <div class="seller-bottom-price1">
-                                            <span class="seller-star"><img
-                                                    src="{{asset('')}}assets/images/icons/orange-star.svg"
-                                                    alt="star-img"></span>
-                                            <span class="seller-price-txt3">5.0</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="featured-slide">
-                                <div class="featured-slide-top redirect-electronic">
-                                    <img src="{{asset('')}}assets/images/homescreen-1/featured-3.png"
-                                        alt="featured-img">
-                                    <div class="home-page-featured-favourite">
-                                        <a href="javascript:void(0);" class="item-bookmark" tabindex="-1">
-                                            <img src="{{asset('')}}assets/images/icons/unfill-heart.svg"
-                                                alt="unfill-heart">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="seller-slide-bottom-content redirect-electronic">
-                                    <h3 class="featured-name">NIVEA Sun Lotion, SPF 50, with UVA & UVB</h3>
-                                    <div class="seller-bottom-price">
-                                        <div class="seller-bottom-price1">
-                                            <span class="seller-price-txt1">$50.00</span>
-                                        </div>
-                                        <div class="seller-bottom-price1">
-                                            <span class="seller-star"><img
-                                                    src="{{asset('')}}assets/images/icons/orange-star.svg"
-                                                    alt="star-img"></span>
-                                            <span class="seller-price-txt3">4.6</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                           
                         </div>
                     </div>
                 </div>
@@ -261,80 +213,26 @@
                         </div>
                         <div class="home3-third-sec-bottom mt-16">
                             <div class="home3-third-sec-bottom-full">
+                                @foreach($categories as $category)
+
                                 <div class="home3-third-wrapper redirect-clothes">
+
                                     <div class="home3-third-wrapper-full">
                                         <div class="home3-cate-img">
-                                            <img src="{{asset('')}}assets/images/homescreen2/category-1.svg"
+                                            <img src="{{ asset('uploads/images/' . $category->image) }}"
                                                 alt="category-img">
                                         </div>
-                                        <p>Fashion</p>
+                                        <p> {{ $category->categoryname }}
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="home3-third-wrapper redirect-electronic">
-                                    <div class="home3-third-wrapper-full">
-                                        <div class="home3-cate-img">
-                                            <img src="{{asset('')}}assets/images/homescreen2/category-2.svg"
-                                                alt="category-img">
-                                        </div>
-                                        <p>Electronics</p>
-                                    </div>
-                                </div>
-                                <div class="home3-third-wrapper redirect-shoes">
-                                    <div class="home3-third-wrapper-full">
-                                        <div class="home3-cate-img">
-                                            <img src="{{asset('')}}assets/images/homescreen2/category-3.svg"
-                                                alt="category-img">
-                                        </div>
-                                        <p>Toys</p>
-                                    </div>
-                                </div>
-                                <div class="home3-third-wrapper redirect-clothes">
-                                    <div class="home3-third-wrapper-full">
-                                        <div class="home3-cate-img">
-                                            <img src="{{asset('')}}assets/images/homescreen2/category-4.svg"
-                                                alt="category-img">
-                                        </div>
-                                        <p>Cosmetics</p>
-                                    </div>
-                                </div>
-                                <div class="home3-third-wrapper redirect-electronic">
-                                    <div class="home3-third-wrapper-full">
-                                        <div class="home3-cate-img">
-                                            <img src="{{asset('')}}assets/images/homescreen2/category-5.svg"
-                                                alt="category-img">
-                                        </div>
-                                        <p>Jewelry</p>
-                                    </div>
-                                </div>
-                                <div class="home3-third-wrapper redirect-shoes">
-                                    <div class="home3-third-wrapper-full">
-                                        <div class="home3-cate-img">
-                                            <img src="{{asset('')}}assets/images/homescreen2/category-6.svg"
-                                                alt="category-img">
-                                        </div>
-                                        <p>Kitchen</p>
-                                    </div>
-                                </div>
-                                <div class="home3-third-wrapper redirect-electronic">
-                                    <div class="home3-third-wrapper-full">
-                                        <div class="home3-cate-img">
-                                            <img src="{{asset('')}}assets/images/homescreen2/category-7.svg"
-                                                alt="category-img">
-                                        </div>
-                                        <p>Fitness</p>
-                                    </div>
-                                </div>
-                                <div class="home3-third-wrapper redirect-shoes">
-                                    <div class="home3-third-wrapper-full">
-                                        <div class="home3-cate-img">
-                                            <img src="{{asset('')}}assets/images/homescreen2/category-8.svg"
-                                                alt="category-img">
-                                        </div>
-                                        <p>Sports</p>
-                                    </div>
-                                </div>
+                                @endforeach
+
+
                             </div>
                         </div>
+
+                        
                     </div>
                 </div>
             </div>
@@ -481,27 +379,23 @@
                                         <div class="wishlist-wrapper-full">
                                             @foreach($category->products as $product)
                                             <div class="shoes-screen-wrapper electronic-redirect">
-                                                <div class="shoes-screen-top">
                                                 <a href="{{ route('user.show-product', $product->id) }}">
-                                                    <div class="shoes-img wishlist-img"
-                                                        style="max-width:292px;max-height:180px;">
-                                                        
-
-                                                        <img style="width:100%;height:100%;" class="responsive-img"
-                                                            src="{{ asset('uploads/images/' . $product->image) }}"
-                                                            alt="{{ $product->name }}">
-                                                           
-
+                                                    <div class="shoes-screen-top">
+                                                        <div class="shoes-img wishlist-img">
+                                                            <img class="responsive-img"
+                                                                src="{{ asset('uploads/images/' . $product->image) }}"
+                                                                alt="{{ $product->name }}">
+                                                        </div>
+                                                        <div class="clothes-favourite">
+                                                            <a href="javascript:void(0);" class="item-bookmark"
+                                                                tabindex="-1">
+                                                                <img src="{{ asset('assets/images/icons/unfill-heart.svg') }}"
+                                                                    alt="unfill-heart">
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                    </a>
-                                                    <div class="clothes-favourite">
-                                                        <a href="javascript:void(0);" class="item-bookmark"
-                                                            tabindex="-1">
-                                                            <img src="{{asset('')}}assets/images/icons/unfill-heart.svg"
-                                                                alt="unfill-heart">
-                                                        </a>
-                                                    </div>
-                                                </div>
+
+                                                </a>
                                                 <div class="shoes-screen-bottom">
                                                     <div class="shoes-screen-bottom-full">
                                                         <div class="shoes-screen-first">
@@ -1078,7 +972,7 @@
                             </g>
                         </svg>
                         <span>
-                            Cart(2)
+                            Cart
                         </span>
                     </a>
                     <a href="{{route('user.wishlist')}}">
@@ -1119,6 +1013,26 @@
         <!--Bottom TabBar Section End -->
     </div>
     <style>
+        .shoes-img {
+            width: 100%;
+            /* Adjust to container width */
+            height: auto;
+            /* Maintains aspect ratio */
+            overflow: hidden;
+            /* Clips any overflow */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .responsive-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* Maintains aspect ratio and fits within */
+            display: block;
+        }
+        
 
     </style>
     <script src="{{asset('')}}assets/js/jquery-min-3.6.0.js"></script>

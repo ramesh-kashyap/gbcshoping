@@ -573,7 +573,7 @@
 							</g>
 						</svg>
 						<span>
-							Cart(2)
+							Cart
 						</span>
 					</a>
 					<a href="{{route('user.wishlist')}}"  class="active">

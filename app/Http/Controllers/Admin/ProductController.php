@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Categorie;
 use App\Models\Product;
+use App\Models\Color;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 
@@ -18,7 +20,11 @@ class ProductController extends Controller
     public function product(Request $request)
     {
     $category=Categorie::all();
+    $color=Color::all();
+
     $this->data['categories'] = $category;
+    $this->data['color'] = $color;
+
     $this->data['page'] = 'admin.product.add-product';
     return $this->admin_dashboard();
     
@@ -26,8 +32,60 @@ class ProductController extends Controller
 
 
 
+    public function add_color(Request $request)
+    {
+    
+    $this->data['page'] = 'admin.product.add-color';
+    return $this->admin_dashboard();
+    
+    }
+    
+    
+
+    public function submit_colorName(Request $request)
+    {
+
+  
+  try{
+    $validation =  Validator::make($request->all(), [
+       
+        'color' => 'required',
+
+    ]);
+
+    if($validation->fails()) {
+        Log::info($validation->getMessageBag()->first());
+
+        return redirect()->route('admin.add-color')->withErrors($validation->getMessageBag()->first())->withInput();
+    }
+
+        
+           $data = [
+                
+                'color_name' => $request->color,
 
     
+                
+            ];
+            $payment =  Color::insert($data);
+            
+
+        $notify[] = ['success',' request submitted successfully'];
+        return redirect()->route('admin.add-color')->withNotify($notify);
+
+   
+
+  }
+   catch(\Exception $e){
+    Log::info('error here');
+    Log::info($e->getMessage());
+    print_r($e->getMessage());
+    die("hi");
+    return  redirect()->route('admin.add-color')->withErrors('error', $e->getMessage())->withInput();
+      }
+
+ }
+
 
 
     public function add_product(Request $request)
@@ -37,6 +95,7 @@ class ProductController extends Controller
   try{
     $validation =  Validator::make($request->all(), [
         'productName' => 'required',
+        'colorId' => 'required',
         'productPrice' => 'required|numeric|min:50',
         'categoryId' => 'required',
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg', // Validation for image
@@ -61,6 +120,8 @@ class ProductController extends Controller
         
            $data = [
                 'productName' => $request->productName,
+                'color_id' => $request->colorId,
+
                 'productPrice' =>$request->productPrice,
                 'category_id' => $request->categoryId,
                 'image' => $imageName,

@@ -62,6 +62,29 @@
 			</div>
 			<div class="navbar-boder"></div>
 		</header>
+		<style>
+.cart-without-img-sec {
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    max-width: 100%; /* Ensures image fits within container */
+    max-height: 100%; /* Maintains image aspect ratio */
+    object-fit: contain; /* Keeps image within container without distortion */
+}
+
+
+
+.cart-without-content-sec {
+    flex-grow: 1; /* Allows the content section to take remaining space */
+    padding-left: 15px;
+}
+
+
+    </style>
 		<!-- Header End -->
 		<!-- Without Promocode Section Start -->
 		<section id="cart-without-promocode">
@@ -69,94 +92,10 @@
 				<h1 class="d-none">Promocode Details</h1>
 				<h2 class="d-none">Promocode</h2>
 				<div class="cart-without-promocode-full">
-					<div class="cart-without-promocode-first">
-						<div class="cart-without-promocode-first-full">
-							<div>
-								<div class="cart-without-img-sec">
-									<img src="{{asset('')}}assets/images/cart-without-promocode/clothes-1.png" alt="clothes-img">
-								</div>
-							</div>
-							<div class="cart-without-content-sec">
-								<div class="cart-without-content-sec-full">
-									<p class="price-code-txt1">Preneum Women's Georgette a-line Knee-Long</p>
-									<p class="price-code-txt2">$150.00</p>
-									<div class="card-without-price-sec">
-										<div class="price-code-txt3">
-											<span>Color:</span>
-											<span>tilt</span>
-										</div>
-										<div class="price-code-txt3">
-											<span>Size:</span>
-											<span>M</span>
-										</div>
-									</div>
-									<div class="card-without-promocode-increment">
-										<div class="product-incre">
-											<a href="javascript:void(0)" class="product__minus sub">
-												<span>
-													<svg width="8" height="8" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M1 1H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</span>
-											</a>
-											<input name="quantity" type="text" class="product__input" value="1">
-											<a href="javascript:void(0)" class="product__plus add">
-												<span>
-													<svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M1 4H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M4 7V1" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="cart-boder mt-16"></div>
-					</div>
-					<div class="cart-without-promocode-first mt-16">
-						<div class="cart-without-promocode-first-full">
-							<div>
-								<div class="cart-without-img-sec">
-									<img src="{{asset('')}}assets/images/cart-without-promocode/watch-1.png" alt="watch-img">
-								</div>
-							</div>
-							<div class="cart-without-content-sec">
-								<div class="cart-without-content-sec-full">
-									<p class="price-code-txt1">Go Buzz Bluetooth Calling Smart Watch, 1.69” Clear</p>
-									<p class="price-code-txt2">$150.00</p>
-									<div class="card-without-price-sec">
-										<div class="price-code-txt3">
-											<span>Color:</span>
-											<span>black</span>
-										</div>
-									</div>
-									<div class="card-without-promocode-increment">
-										<div class="product-incre">
-											<a href="javascript:void(0)" class="product__minus sub">
-												<span>
-													<svg width="8" height="8" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M1 1H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</span>
-											</a>
-											<input name="quantity" type="text" class="product__input" value="1">
-											<a href="javascript:void(0)" class="product__plus add">
-												<span>
-													<svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M1 4H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M4 7V1" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="cart-boder mt-16"></div>
-					</div>
+					<div id="cartContainer"  class="cart-without-promocode-first">
+						
+					</div>	
+					
 				</div>
 				<div class="without-code-second">
 					<div class="without-code-second-full">
@@ -188,7 +127,7 @@
 							<p>Subtotal</p>
 						</div>
 						<div class="check-price-list1">
-							<p>$300.00</p>
+						<p id="subtotal">$0.00</p>
 						</div>
 					</div>
 					<div class="check-page-bottom-deatails mt-8">
@@ -213,10 +152,10 @@
 					<div class="without-code-last-full">
 						<div>
 							<p class="total-txt">Total:</p>
-							<p class="price-txt">$315.00</p>
-						</div>
+							<p class="price-txt" id="total">$0.00</p>
+							</div>
 						<div class="proceed-to check-btn">
-							<a href="{{route('checkout')}}">Proceed To Checkout</a>
+							<a href="">Proceed To Checkout</a>
 						</div>
 					</div>
 				</div>
@@ -270,7 +209,7 @@
 							</g>
 						</svg>
 						<span>
-							Cart(2)
+							Cart
 						</span>
 					</a>
 					<a href="{{route('user.wishlist')}}">
@@ -304,6 +243,105 @@
 		</div>
 		<!--Bottom TabBar Section End -->
 	</div>
+	<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const loggedInUserId = "{{ auth()->user()->id }}";
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+    const cartContainer = document.getElementById('cartContainer');
+    const deliveryCharge = 15.00;
+
+    const userCartProducts = cartProducts.filter(product => product.userId == loggedInUserId);
+
+    if (userCartProducts.length > 0) {
+        userCartProducts.forEach((product, index) => {
+            const productHTML = `
+                <div class="cart-without-promocode-full">
+                    <div class="cart-without-promocode-first-full">
+                        <div class="cart-without-img-sec">
+                            <img src="${product.image}" alt="Product Image" class="img">
+                        </div>
+                        <div class="cart-without-content-sec">
+                            <div class="cart-without-content-sec-full">
+                                <p class="price-code-txt1">${product.description}</p>
+                                <p class="price-code-txt2" id="price-${index}">${(product.price * product.quantity).toFixed(2)}</p>
+                                <div class="card-without-price-sec">
+                                    <div class="price-code-txt3">
+                                        <span>Color:</span>
+                                        <span>${product.color}</span>
+                                    </div>
+                                    <div class="price-code-txt3">
+                                        <span>Size:</span>
+                                        <span>${product.size}</span>
+                                    </div>
+                                </div>
+                                <div class="card-without-promocode-increment">
+                                    <div class="product-incre">
+                                        <a href="javascript:void(0)" class="product__minus sub" onclick="updateQuantity(${index}, -1)">
+                                            <span>
+                                                <svg width="8" height="8" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1 1H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                        <input id="quantity-${index}" name="quantity" type="text" class="product__input" value="${product.quantity}" readonly>
+                                        <a href="javascript:void(0)" class="product__plus add" onclick="updateQuantity(${index}, 1)">
+                                            <span>
+                                                <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1 4H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    <path d="M4 7V1" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-boder mt-16"></div>
+                </div>
+            `;
+            cartContainer.insertAdjacentHTML('beforeend', productHTML);
+        });
+    } else {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    }
+
+    updateTotals();
+
+    window.updateQuantity = function(index, change) {
+        const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+        if (cartProducts[index]) {
+            const newQuantity = Math.max(1, Number(cartProducts[index].quantity) + change);
+            cartProducts[index].quantity = newQuantity;
+
+            document.getElementById(`quantity-${index}`).value = newQuantity;
+            const totalPrice = (cartProducts[index].price * newQuantity).toFixed(2);
+            document.getElementById(`price-${index}`).innerText = totalPrice;
+
+            localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+            updateTotals();
+        }
+    };
+
+    function updateTotals() {
+        const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+        let subtotal = 0;
+        
+        cartProducts.forEach(product => {
+            subtotal += product.price * product.quantity;
+        });
+
+        const total = subtotal + deliveryCharge;
+        document.getElementById('subtotal').innerText = `$${subtotal.toFixed(2)}`;
+        document.getElementById('total').innerText = `$${total.toFixed(2)}`;
+    }
+});
+
+</script>
+
+
+
+
 	<script src="{{asset('')}}assets/js/jquery-min-3.6.0.js"></script>
 	<script src="{{asset('')}}assets/js/slick.min.js"></script>
 	<script src="{{asset('')}}assets/js/bootstrap.bundle.min.js"></script>
