@@ -69,7 +69,7 @@
 				<h2 class="d-none">Promocode</h2>
 				<div class="cart-without-promocode-full">
 					<div class="cart-without-promocode-first">
-						<div class="cart-without-promocode-first-full">
+						<div id-"cart-container" class="cart-without-promocode-first-full">
 							<div>
 								<div class="cart-without-img-sec">
 								<img src="" id="cart-item-image" alt="Product Image">
@@ -641,7 +641,7 @@
 		</div>
 		<!--Bottom TabBar Section End -->
 	</div>
-
+	
 	<script>
 // Retrieve the cart items array
 var cart = JSON.parse(sessionStorage.getItem('cart')) || [];
@@ -669,6 +669,7 @@ cart.forEach(function(item, index) {
     cartContainer.appendChild(itemContainer);
 });
 </script>
+
 
 	<script src="{{asset('')}}assets/js/jquery-min-3.6.0.js"></script>
 	<script src="{{asset('')}}assets/js/slick.min.js"></script>
