@@ -94,20 +94,13 @@
 								</div>
 								<div class="single-clothes-favourite">
 									<a href="javascript:void(0);" class="item-bookmark" tabindex="-1">
-										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<mask style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
-												<rect width="20" height="20" fill="white"></rect>
-											</mask>
-											<g mask="url(#mask0_330_6192)">
-												<path d="M15.7608 10.1528L9.51083 16.3428L3.26083 10.1528C2.84858 9.75168 2.52387 9.26952 2.30712 8.7367C2.09037 8.20389 1.9863 7.63196 2.00144 7.05695C2.01659 6.48194 2.15063 5.91629 2.39513 5.39562C2.63962 4.87495 2.98928 4.41055 3.42207 4.03166C3.85486 3.65276 4.36142 3.36758 4.90984 3.19407C5.45826 3.02057 6.03667 2.96249 6.60864 3.02351C7.18061 3.08452 7.73375 3.2633 8.23323 3.54859C8.73271 3.83389 9.1677 4.21951 9.51083 4.68117C9.85544 4.22286 10.2909 3.84061 10.7901 3.55834C11.2892 3.27608 11.8412 3.09988 12.4116 3.04077C12.982 2.98166 13.5584 3.04092 14.1048 3.21483C14.6512 3.38874 15.1559 3.67357 15.5871 4.05148C16.0184 4.42938 16.367 4.89224 16.6112 5.41108C16.8553 5.92992 16.9898 6.49358 17.0061 7.06676C17.0224 7.63995 16.9202 8.21033 16.7059 8.74221C16.4917 9.2741 16.1699 9.75602 15.7608 10.1578" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-											</g>
-										</svg>
+										<img src="{{asset('')}}assets/images/icons/unfill-heart.svg" alt="unfill-heart">
 									</a>
 								</div>
 							</div>
 							<div class="carousel-item">
 								<div class="single-clothes-slide-img">
-									<img src="{{ asset('uploads/images/' . $product->image) }}" alt="cloths-img"  >
+									<img src="{{ asset('uploads/images/' . $product->image) }}" alt="cloths-img" id="product-image" >
 								</div>
 								<div class="single-clothes-favourite">
 									<a href="javascript:void(0);" class="item-bookmark" tabindex="-1">
@@ -284,40 +277,53 @@
                                 <div class="size-section-full">
                                     <h3 class="des-txt1">Size</h3>
                                     <div class="clothes-size-sec">
-                                        <div class="clothes-size">
-                                            <input type="radio" value="S" id="clothes-size1" name="size">
-                                            <label class="custom-radio-sel-size" for="clothes-size1">S</label>
-                                        </div>
-                                        <div class="clothes-size">
-                                            <input type="radio" value="M" id="clothes-size2" name="size" checked>
-                                            <label class="custom-radio-sel-size" for="clothes-size2">M</label>
-                                        </div>
-                                        <div class="clothes-size">
-                                            <input type="radio" value="L" id="clothes-size3" name="size">
-                                            <label class="custom-radio-sel-size" for="clothes-size3">L</label>
-                                        </div>
-                                        <div class="clothes-size">
-                                            <input type="radio" value="XL" id="clothes-size4" name="size">
-                                            <label class="custom-radio-sel-size" for="clothes-size4">XL</label>
-                                        </div>
-                                    </div>
+    <div class="clothes-size">
+        <input type="radio" value="S" id="clothes-size1" name="size">
+        <label class="custom-radio-sel-size" for="clothes-size1">S</label>
+    </div>
+    <div class="clothes-size">
+        <input type="radio" value="M" id="clothes-size2" name="size" checked>
+        <label class="custom-radio-sel-size" for="clothes-size2">M</label>
+    </div>
+    <div class="clothes-size">
+        <input type="radio" value="L" id="clothes-size3" name="size">
+        <label class="custom-radio-sel-size" for="clothes-size3">L</label>
+    </div>
+    <div class="clothes-size">
+        <input type="radio" value="XL" id="clothes-size4" name="size">
+        <label class="custom-radio-sel-size" for="clothes-size4">XL</label>
+    </div>
+</div>
                                 </div>
                             </div>
                             
                             <div class="color-section">
-    <div class="color-section-full">
-        <h3 class="des-txt1">Color</h3>
-        <div class="cloths-color-sec">
-            @foreach ($colors as $color)
-                <div class="color-wrap">
-                    <label for="{{ $color->color_name }}" class="{{ $color->css_class ?? 'default-class' }}">
-                        <input type="radio" name="color"  id="{{ $color->color_name }}" value="{{ $color->id }}" class="col-deatils">
-                    </label>
-                </div>
-            @endforeach
-        </div>
+								<div class="color-section-full">
+									<h3 class="des-txt1">Color</h3>
+									<div class="cloths-color-sec">
+    <div class="color-wrap">
+        <label for="green" class="color1">
+            <input type="radio" name="color" id="green" class="col-deatils" checked>
+        </label>
+    </div>
+    <div class="color-wrap">
+        <label for="red" class="color2">
+            <input type="radio" name="color" id="red" class="col-deatils">
+        </label>
+    </div>
+    <div class="color-wrap">
+        <label for="blue" class="color3">
+            <input type="radio" name="color" id="blue" class="col-deatils">
+        </label>
+    </div>
+    <div class="color-wrap">
+        <label for="light-green" class="color4">
+            <input type="radio" name="color" id="light-green" class="col-deatils">
+        </label>
     </div>
 </div>
+								</div>
+							</div>
 
 
                         </div>
@@ -359,9 +365,9 @@
                             </div>
 						
                             <div class="add-to-cart-cloth-btn">
-								<button style="text-decoration: none" type="submit" onclick="addToCart()" >Add to Cart</button>
-	
-                            </div>
+    <button id="add-to-cart-btn">Add To Cart</button>
+</div>
+
                         </div>
                     </div>
                 </div>
@@ -372,69 +378,39 @@
         <!-- Single Cloths Section End -->
     </div>
   
-
     <script>
-function addToCart() {
-    const userId = "{{ auth()->user()->id }}";
-    const productId = "{{ $product->id }}";
-    const productPrice = "{{ $product->productPrice }}";
-    const productDescription = "{{ $product->ProductDiscription }}";
-    const size = document.querySelector('input[name="size"]:checked').value;
-    const colorId = document.querySelector('input[name="color"]:checked').value;
-    const quantity = document.querySelector('input[name="quantity"]').value;
+document.getElementById('add-to-cart-btn').addEventListener('click', function() {
+    // Get selected product details
+    var selectedSize = document.querySelector('input[name="size"]:checked').value;
+    var selectedColor = document.querySelector('input[name="color"]:checked').id;
+    var selectedImage = document.querySelector('#product-image').src;
+    var selectedQuantity = document.querySelector('input[name="quantity"]').value;
+    var productPrice = document.querySelector('.price-sec2').textContent;
 
-    const productDetails = {
-        id: productId,
-        image: selectedProductImage,  // Use the selected color's image
-        description: productDescription,
-        price: parseFloat(productPrice),
-        size: size,
-        colorId: colorId,
-        quantity: parseInt(quantity),
-        userId: userId
+    // Create a product object
+    var product = {
+        size: selectedSize,
+        color: selectedColor,
+        image: selectedImage,
+        quantity: selectedQuantity,
+        price: productPrice
     };
 
-    let cart = JSON.parse(localStorage.getItem('cartProducts')) || [];
-    cart = cart.filter(item => item.userId === userId);
-    cart.push(productDetails);
-
-    localStorage.setItem('cartProducts', JSON.stringify(cart));
-    window.location.href = "{{ route('user.cart') }}";
-}
-
-</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script>
-   let selectedProductImage = ''; // Variable to store the selected image URL
-
-$(document).on('change', 'input[name="color"]', function() {
-    let colorId = $(this).val();
+    // Retrieve the existing cart array from sessionStorage or initialize a new one
+    var cart = JSON.parse(sessionStorage.getItem('cart')) || [];
     
-    $.ajax({
-        url: "{{ route('fetch.product.by.color') }}",
-        type: "POST",
-        data: {
-            _token: "{{ csrf_token() }}",
-            color_id: colorId
-        },
-        success: function(response) {
-            if (response.success) {
-                selectedProductImage = '/uploads/images/' + response.product.image; // Update image URL
-                $('#product-carousel .carousel-item img').each(function() {
-                    $(this).attr('src', selectedProductImage);
-                });
-            } else {
-                alert(response.message);
-            }
-        },
-        error: function() {
-            alert('An error occurred. Please try again.');
-        }
-    });
-});
+    // Add the new product to the cart array
+    cart.push(product);
+    
+    // Save the updated cart array back to sessionStorage
+    sessionStorage.setItem('cart', JSON.stringify(cart));
 
+    // Redirect to the cart page
+    window.location.href = '/user/cart';
+});
 </script>
+
+
 
 	<style>
         
@@ -456,6 +432,11 @@ $(document).on('change', 'input[name="color"]', function() {
     margin: auto;
 		}
 		</style>
+
+
+
+
+
     <script src="{{asset('')}}assets/js/jquery-min-3.6.0.js"></script>
     <script src="{{asset('')}}assets/js/slick.min.js"></script>
     <script src="{{asset('')}}assets/js/bootstrap.bundle.min.js"></script>

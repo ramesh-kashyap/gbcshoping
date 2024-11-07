@@ -12,4 +12,6 @@ class product extends Model
         'productName', 'productPrice', 'category_id','image','productDiscountPrice', 'productCoupon', 'productDiscription','activeStatus','color_id',
 
     ];
+
+    
 }

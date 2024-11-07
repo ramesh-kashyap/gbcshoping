@@ -79,14 +79,16 @@ Route::get('/feedback', [App\Http\Controllers\UserPanel\setting::class, 'feedbac
 
 
 
-
 Route::get('/home', [App\Http\Controllers\UserPanel\Dashboard::class, 'index'])->name('home');
 Route::prefix('user')->group(function ()
 {
 Route::middleware('auth')->group(function ()
 {
+  Route::post('/add-to-cart', [App\Http\Controllers\UserPanel\HomeController::class, 'addToCart'])->name('user.add-to-cart');
 
-  Route::post('/fetch-product-by-color', [App\Http\Controllers\UserPanel\HomeController::class, 'fetchProductByColor'])->name('fetch.product.by.color');
+  Route::get('/all-products/{categoryId}', [App\Http\Controllers\UserPanel\HomeController::class, 'all_products'])->name('user.show-all-product');
+
+  Route::get('/all-product', [App\Http\Controllers\UserPanel\HomeController::class, 'all_product'])->name('user.all-product');
 
   Route::get('/add-cart', [App\Http\Controllers\UserPanel\HomeController::class, 'add_cart'])->name('user.add-cart');
 
@@ -237,6 +239,8 @@ Route::group(['middleware' => ['admin']], function ()
   Route::post('/submit-product', [App\Http\Controllers\Admin\ProductController::class, 'add_product'])->name('submit-product');
   Route::get('/product-report', [App\Http\Controllers\Admin\ProductController::class, 'product_report'])->name('product-report');
   Route::get('/edit-product', [App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('edit-product');
+  Route::get('/sub-product', [App\Http\Controllers\Admin\ProductController::class, 'sub_product'])->name('admin.sub-product');
+  Route::post('/submit-sub-product', [App\Http\Controllers\Admin\ProductController::class, 'add_sub_product'])->name('admin.submit-sub-product');
 
 
   Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'category'])->name('admin.category');

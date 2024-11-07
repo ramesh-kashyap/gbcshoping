@@ -69,90 +69,9 @@
 				<div class="wishlist-section-full mt-24">
 					<div class="wishlist-wrapper">
 						<div class="wishlist-wrapper-full">
-							<div class="shoes-screen-wrapper electronic-redirect">
-								<div class="shoes-screen-top">
-									<div class="shoes-img wishlist-img">
-										<img src="{{asset('')}}assets/images/wishlist/wishlist-1.png" alt="shoes-img">
-									</div>
-									<div class="clothes-favourite">
-										<a href="javascript:void(0);" class="item-bookmark active" tabindex="-1">
-											<img src="{{asset('')}}assets/images/icons/unfill-heart.svg" alt="unfill-heart">
-										</a>
-									</div>
-								</div>
-								<div class="shoes-screen-bottom">
-									<div class="shoes-screen-bottom-full">
-										<div class="shoes-screen-first">
-											<h3>Fire-Boltt Phoenix Smart Watch with Bluetooth Calling </h3>
-										</div>
-										<div class="shoes-screen-second">
-											<div class="cloth-txt1">
-												<span>$150.00</span>
-											</div>
-											<div class="shoes-screen-second-full">
-												<span class="cloth-star"><img src="{{asset('')}}assets/images/icons/orange-star.svg" alt="star-img"></span>
-												<span class="cloth-txt2">4.8</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="shoes-screen-wrapper electronic-redirect">
-								<div class="shoes-screen-top">
-									<div class="shoes-img wishlist-img">
-										<img src="{{asset('')}}assets/images/wishlist/wishlist-2.png" alt="shoes-img">
-									</div>
-									<div class="clothes-favourite">
-										<a href="javascript:void(0);" class="item-bookmark active" tabindex="-1">
-											<img src="{{asset('')}}assets/images/icons/unfill-heart.svg" alt="unfill-heart">
-										</a>
-									</div>
-								</div>
-								<div class="shoes-screen-bottom">
-									<div class="shoes-screen-bottom-full">
-										<div class="shoes-screen-first">
-											<h3>All-in-One PC 12th Gen Intel Core i5-1235U 24-inch(60.5 cm) FHD Ant</h3>
-										</div>
-										<div class="shoes-screen-second">
-											<div class="cloth-txt1">
-												<span>$850.00</span>
-											</div>
-											<div class="shoes-screen-second-full">
-												<span class="cloth-star"><img src="{{asset('')}}assets/images/icons/orange-star.svg" alt="star-img"></span>
-												<span class="cloth-txt2">4.8</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="shoes-screen-wrapper cloth-redirect">
-								<div class="shoes-screen-top">
-									<div class="shoes-img wishlist-img">
-										<img src="{{asset('')}}assets/images/wishlist/wishlist-3.png" alt="shoes-img">
-									</div>
-									<div class="clothes-favourite">
-										<a href="javascript:void(0);" class="item-bookmark active" tabindex="-1">
-											<img src="{{asset('')}}assets/images/icons/unfill-heart.svg" alt="unfill-heart">
-										</a>
-									</div>
-								</div>
-								<div class="shoes-screen-bottom">
-									<div class="shoes-screen-bottom-full">
-										<div class="shoes-screen-first">
-											<h3>Western Dresses for Women | Short A-Line Dress for Girls | Maxi </h3>
-										</div>
-										<div class="shoes-screen-second">
-											<div class="cloth-txt1">
-												<span>$80.00</span>
-											</div>
-											<div class="shoes-screen-second-full">
-												<span class="cloth-star"><img src="{{asset('')}}assets/images/icons/orange-star.svg" alt="star-img"></span>
-												<span class="cloth-txt2">4.8</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							
+							
+							
 							<div class="shoes-screen-wrapper cloth-redirect">
 								<div class="shoes-screen-top">
 									<div class="shoes-img wishlist-img">

@@ -212,25 +212,22 @@
                             </div>
                         </div>
                         <div class="home3-third-sec-bottom mt-16">
-                            <div class="home3-third-sec-bottom-full">
-                                @foreach($categories as $category)
-
-                                <div class="home3-third-wrapper redirect-clothes">
-
-                                    <div class="home3-third-wrapper-full">
-                                        <div class="home3-cate-img">
-                                            <img src="{{ asset('uploads/images/' . $category->image) }}"
-                                                alt="category-img">
-                                        </div>
-                                        <p> {{ $category->categoryname }}
-                                        </p>
-                                    </div>
-                                </div>
-                                @endforeach
-
-
-                            </div>
+    <div class="home3-third-sec-bottom-full">
+        @foreach($categories as $category)
+            <div class="home3-third-wrapper redirect-clothes">
+                <a href="{{ route('user.show-all-product', ['categoryId' => $category->id]) }}">
+                    <div class="home3-third-wrapper-full">
+                        <div class="home3-cate-img">
+                            <img src="{{ asset('uploads/images/' . $category->image) }}" alt="category-img">
                         </div>
+                        <p>{{ $category->categoryname }}</p>
+                    </div>
+                </a>
+            </div>
+        @endforeach
+    </div>
+</div>
+
 
                         
                     </div>
