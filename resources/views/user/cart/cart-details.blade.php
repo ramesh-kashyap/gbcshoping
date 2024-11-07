@@ -607,7 +607,7 @@
 var cart = JSON.parse(sessionStorage.getItem('cart')) || [];
 
 // Select the cart container where items will be displayed
-var cartContainer = document.getElementById('cart-container');
+var cartContainer = document.getElementById('');
 
 // Loop through each item in the cart and create HTML for each
 cart.forEach(function(item, index) {
