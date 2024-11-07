@@ -174,7 +174,7 @@
                     <div class="container">
                         <div class="cloths-second-sec-full">
                             <div class="cloths-second-wrapper">
-                                <h1 class="clo-txt1">{{$product->ProductDiscription}}</h1>
+                                <h1 class="clo-txt1">{{$product->productName}}</h1>
                                 <div class="cloths-review-sec">
                                     <div class="cloths-sold-sec">
                                         <p>9,742 sold</p>
@@ -386,6 +386,8 @@ document.getElementById('add-to-cart-btn').addEventListener('click', function() 
     var selectedImage = document.querySelector('#product-image').src;
     var selectedQuantity = document.querySelector('input[name="quantity"]').value;
     var productPrice = document.querySelector('.price-sec2').textContent;
+    var productName = document.querySelector('.clo-txt1').textContent; // Assuming description is here
+
 
     // Create a product object
     var product = {
@@ -393,7 +395,9 @@ document.getElementById('add-to-cart-btn').addEventListener('click', function() 
         color: selectedColor,
         image: selectedImage,
         quantity: selectedQuantity,
-        price: productPrice
+        price: productPrice,
+        name: productName // Add description here
+
     };
 
     // Retrieve the existing cart array from sessionStorage or initialize a new one
