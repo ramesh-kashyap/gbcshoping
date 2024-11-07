@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -607,10 +606,13 @@
 var cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Select the cart container where items will be displayed
-var cartContainer = document.getElementById('');
+var cartContainer = document.getElementById('cart-container');
 
 // Loop through each item in the cart and create HTML for each
 cart.forEach(function(item, index) {
+    // Store base price to calculate total
+    const basePrice = item.price;
+
     // Create an item container
     var itemContainer = document.createElement('div');
     itemContainer.classList.add('cart-item');
@@ -632,7 +634,7 @@ cart.forEach(function(item, index) {
                           <div class="cart-without-content-sec">
                               <div class="cart-without-content-sec-full">
                                   <p class="price-code-txt1">${item.name}</p>
-                                  <p class="price-code-txt2"> ${item.price}</p>
+                                  <p class="price-code-txt2">$<span class="item-price">${item.price}</span></p>
                                   <div class="card-without-price-sec">
                                       <div class="price-code-txt3">
                                           <span>Color:</span>
@@ -652,7 +654,7 @@ cart.forEach(function(item, index) {
                                                   </svg>
                                               </span>
                                           </a>
-                                          <input name="quantity" type="text" class="product__input" value=" ${item.quantity}">
+                                          <input name="quantity" type="text" class="product__input" value="${item.quantity}">
                                           <a href="javascript:void(0)" class="product__plus add">
                                               <span>
                                                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -675,7 +677,52 @@ cart.forEach(function(item, index) {
 
     // Append the item container to the cart container
     cartContainer.appendChild(itemContainer);
+
+    // Get references to the quantity input, price display, plus, and minus buttons
+    const quantityInput = itemContainer.querySelector('.product__input');
+    const priceDisplay = itemContainer.querySelector('.item-price');
+    const minusButton = itemContainer.querySelector('.product__minus');
+    const plusButton = itemContainer.querySelector('.product__plus');
+
+    // Function to update the displayed price based on quantity
+	function updatePrice() {
+        const quantity = parseInt(quantityInput.value, 10);
+        const newPrice = (basePrice * quantity).toFixed(2);
+        priceDisplay.textContent = newPrice;
+        item.price = newPrice; // Update item price in the cart array
+        item.quantity = quantity; // Update quantity in the cart array
+
+        // Save the updated cart to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+     // Event listeners for increment and decrement buttons
+	 minusButton.addEventListener('click', function() {
+        let quantity = parseInt(quantityInput.value, 10);
+        if (quantity > 1) {
+            quantity -= 1;
+            quantityInput.value = quantity;
+            updatePrice();
+        }
+    });
+
+    plusButton.addEventListener('click', function() {
+        let quantity = parseInt(quantityInput.value, 10);
+        quantity += 1;
+        quantityInput.value = quantity;
+        updatePrice();
+    });
+    
+    // Event listener for manual quantity input change
+    quantityInput.addEventListener('input', function() {
+        let quantity = parseInt(quantityInput.value, 10);
+        if (quantity < 1) {
+            quantity = 1;
+        }
+        quantityInput.value = quantity;
+        updatePrice();
+    });
 });
+
 </script>
 <style>{
 	   width: 100%;
