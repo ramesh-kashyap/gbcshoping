@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-use Redirect;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\PasswordReset;
 use App\Models\User;
 use App\Models\UserLogin;
@@ -46,7 +46,7 @@ class Login extends Controller
                return Redirect::back()->withErrors(array('You are Blocked by admin'));
                 }
 
-                return redirect()->route('user.dashboard');
+                return redirect()->route('Index');
 
               // echo "credentials are invalid"; die;
             }

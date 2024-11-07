@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
+|mm,,,
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
+| donee
 */
 Route::get('/clear', function() {
 
@@ -24,7 +24,7 @@ Route::get('/clear', function() {
 });
 
 Route::get('/', function () {
-    return view('main.home');
+    return view('user.home');
 });
 
 Auth::routes();
@@ -52,10 +52,30 @@ Route::post('/getUserName', [App\Http\Controllers\Register::class, 'getUserNameA
 Route::post('/registers', [App\Http\Controllers\Register::class, 'register'])->name('registers');
 Route::get('/register_sucess', [App\Http\Controllers\Register::class, 'index'])->name('register_sucess');
 
-Route::get('/Index', [App\Http\Controllers\FrontController::class, 'index'])->name('Index');
-Route::get('/cart', [App\Http\Controllers\FrontController::class, 'cart'])->name('cart');
+Route::get('/Index', [App\Http\Controllers\UserPanel\HomeController::class, 'index'])->name('Index');
+Route::get('/search-product', [App\Http\Controllers\UserPanel\SearchController::class, 'search_product'])->name('search-product');
+Route::get('/filter-screen', [App\Http\Controllers\UserPanel\SearchController::class, 'filter'])->name('filter-screen');
+
+Route::get('/wishlist', [App\Http\Controllers\UserPanel\CartController::class, 'wishlist'])->name('user.wishlist');
 
 
+Route::get('/clothes-screen', [App\Http\Controllers\UserPanel\cateController::class, 'clothes'])->name('clothes-screen');
+Route::get('/electronic-screen', [App\Http\Controllers\UserPanel\cateController::class, 'electronic'])->name('electronic-screen');
+Route::get('/details', [App\Http\Controllers\UserPanel\cateController::class, 'details'])->name('details');
+
+Route::get('/notification', [App\Http\Controllers\UserPanel\notification::class, 'notification'])->name('notification');
+
+//route of setting
+Route::get('/notification-option', [App\Http\Controllers\UserPanel\setting::class, 'notification_option'])->name('notification-option');
+Route::get('/langauge', [App\Http\Controllers\UserPanel\setting::class, 'langauge'])->name('langauge');
+Route::get('/currency', [App\Http\Controllers\UserPanel\setting::class, 'currency'])->name('currency');
+Route::get('/about-us', [App\Http\Controllers\UserPanel\setting::class, 'about_us'])->name('about-us');
+Route::get('/contact-us', [App\Http\Controllers\UserPanel\setting::class, 'contact_us'])->name('contact-us');
+
+Route::get('/privacy', [App\Http\Controllers\UserPanel\setting::class, 'privacy'])->name('privacy');
+Route::get('/invite', [App\Http\Controllers\UserPanel\setting::class, 'invite'])->name('invite');
+Route::get('/faq', [App\Http\Controllers\UserPanel\setting::class, 'faq'])->name('faq');
+Route::get('/feedback', [App\Http\Controllers\UserPanel\setting::class, 'feedback'])->name('feedback');
 
 
 
@@ -64,6 +84,45 @@ Route::prefix('user')->group(function ()
 {
 Route::middleware('auth')->group(function ()
 {
+  Route::post('/add-to-cart', [App\Http\Controllers\UserPanel\HomeController::class, 'addToCart'])->name('user.add-to-cart');
+
+  Route::get('/all-products/{categoryId}', [App\Http\Controllers\UserPanel\HomeController::class, 'all_products'])->name('user.show-all-product');
+
+  Route::get('/all-product', [App\Http\Controllers\UserPanel\HomeController::class, 'all_product'])->name('user.all-product');
+
+  Route::get('/add-cart', [App\Http\Controllers\UserPanel\HomeController::class, 'add_cart'])->name('user.add-cart');
+
+// Route to show the product details page
+Route::get('/show-product/{id}', [App\Http\Controllers\UserPanel\HomeController::class, 'show_product'])->name('user.show-product');
+
+Route::get('/cart', [App\Http\Controllers\UserPanel\CartController::class, 'cart'])->name('user.cart');
+Route::get('/checkout-details', [App\Http\Controllers\UserPanel\CartController::class, 'checkout_details'])->name('user.checkout-details');
+Route::get('/enter-Pincode', [App\Http\Controllers\UserPanel\CartController::class, 'pin_code'])->name('user.pin_code');
+
+Route::get('/account-screen', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'account'])->name('user.account-screen');
+
+Route::get('/profile-edit', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'profile'])->name('profile-edit');
+
+Route::get('/wallet', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'wallet'])->name('wallet');
+Route::get('/my-order', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'myorder'])->name('my-order');
+Route::get('/payment', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'payment'])->name('payment');
+Route::get('/add-new-card', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'paymentAdd'])->name('add-new-card');
+Route::get('/address', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'address'])->name('address');
+Route::get('/add-address', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'addAddress'])->name('add-address');
+
+Route::get('/my-promocode', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'promocode'])->name('my-promocode');
+Route::get('/checkout', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'checkout'])->name('checkout');
+Route::get('/enter-pin', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'enterPin'])->name('enter-pin');
+Route::get('/track-order', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'order_track'])->name('track-order');
+Route::get('/order-success', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'order_success'])->name('order-success');
+
+Route::get('/add-promocode', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'promocodeAdd'])->name('add-promocode');
+Route::get('/with-promocode', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'promocodeWith'])->name('with-promocode');
+Route::get('/without-promocode', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'promocodeWithout'])->name('without-promocode');
+
+Route::get('/logouts', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'logouts'])->name('logouts');
+
+
 Route::get('/dashboard', [App\Http\Controllers\UserPanel\Dashboard::class, 'index'])->name('user.dashboard');
 Route::get('/tradeOn', [App\Http\Controllers\UserPanel\Dashboard::class, 'tradeOn'])->name('user.tradeOn');
 Route::get('/market', [App\Http\Controllers\UserPanel\Dashboard::class, 'market'])->name('user.market');
@@ -92,7 +151,6 @@ Route::get('/BankDetail', [App\Http\Controllers\UserPanel\Profile::class, 'BankD
 Route::post('/bank-update', [App\Http\Controllers\UserPanel\Profile::class, 'bank_profile_update'])->name('user.bank-update');
 Route::post('/change-trxpasswword', [App\Http\Controllers\UserPanel\Profile::class, 'change_trxpassword_post'])->name('user.change-trxpasswword');
 // end profile
-
 
 // add fund
 Route::get('/confirm-fund', [App\Http\Controllers\UserPanel\AddFund::class, 'confirmfund'])->name('user.confirmfund');
@@ -124,7 +182,7 @@ Route::post('/WithdrawRequestPrinciple', [App\Http\Controllers\UserPanel\Withdra
 Route::get('/WithdrawHistory', [App\Http\Controllers\UserPanel\WithdrawRequest::class, 'WithdrawHistory'])->name('user.Withdraw-History');
 // end withdraw
 
-//team
+//team new Changes
 Route::get('/referral-team', [App\Http\Controllers\UserPanel\Team::class, 'index'])->name('user.referral-team');
 Route::get('/level-team', [App\Http\Controllers\UserPanel\Team::class, 'LevelTeam'])->name('user.level-team');
 Route::get('/left-team', [App\Http\Controllers\UserPanel\Team::class, 'leftteam'])->name('user.left-team');
@@ -174,8 +232,21 @@ Route::post('LoginAction', [App\Http\Controllers\Admin\AdminLogin::class, 'admin
 Route::get('/admin-logout', [App\Http\Controllers\Admin\AdminLogin::class, 'admin_sign_out'])->name('admin.admin-logout');
 Route::group(['middleware' => ['admin']], function ()
 {
+  Route::get('/add-color', [App\Http\Controllers\Admin\ProductController::class, 'add_color'])->name('admin.add-color');
+  Route::post('/submit-colorName', [App\Http\Controllers\Admin\ProductController::class, 'submit_colorName'])->name('submit-colorName');
 
- Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard::class, 'index'])->name('admin.dashboard');
+  Route::get('/product', [App\Http\Controllers\Admin\ProductController::class, 'product'])->name('admin.product');
+  Route::post('/submit-product', [App\Http\Controllers\Admin\ProductController::class, 'add_product'])->name('submit-product');
+  Route::get('/product-report', [App\Http\Controllers\Admin\ProductController::class, 'product_report'])->name('product-report');
+  Route::get('/edit-product', [App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('edit-product');
+  Route::get('/sub-product', [App\Http\Controllers\Admin\ProductController::class, 'sub_product'])->name('admin.sub-product');
+  Route::post('/submit-sub-product', [App\Http\Controllers\Admin\ProductController::class, 'add_sub_product'])->name('admin.submit-sub-product');
+
+
+  Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'category'])->name('admin.category');
+  Route::post('/add-category', [App\Http\Controllers\Admin\CategoryController::class, 'add_category'])->name('admin.add-category');
+  Route::get('/category-report', [App\Http\Controllers\Admin\CategoryController::class, 'category_report'])->name('admin.category-report');
+  Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard::class, 'index'])->name('admin.dashboard');
    Route::get('/loginWithadmin', [App\Http\Controllers\Admin\Dashboard::class, 'loginWithadmin'])->name('admin.loginWithadmin');
  Route::get('/changePassword', [App\Http\Controllers\Admin\Dashboard::class, 'changePassword'])->name('admin.changePassword');
  Route::get('/add-price', [App\Http\Controllers\Admin\Dashboard::class, 'addPrice'])->name('admin.add-price');

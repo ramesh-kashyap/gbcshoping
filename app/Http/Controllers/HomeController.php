@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $categories = Categorie::with('products')->get();
+        $allProducts = Product::all(); // Ye line sabhi products ko fetch karegi
+
+
+        return view('user.home', compact('categories', 'allProducts'));
     }
 }

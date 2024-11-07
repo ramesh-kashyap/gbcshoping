@@ -23,7 +23,7 @@ class DepositController extends Controller
               ->orWhere('sdate', 'LIKE', '%' . $search . '%')
               ->orWhere('status', 'LIKE', '%' . $search . '%')
               ->orWhere('transaction_id', 'LIKE', '%' . $search . '%');
-            });
+            }); 
 
           }
     $notes = $notes->paginate($limit)
