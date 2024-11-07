@@ -603,8 +603,8 @@
 	</div>
 	
 	<script>
-// Retrieve the cart items array
-var cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+// Retrieve the cart items array from localStorage
+var cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Select the cart container where items will be displayed
 var cartContainer = document.getElementById('');
@@ -618,59 +618,59 @@ cart.forEach(function(item, index) {
     // Set the inner HTML of the item container with item details
     itemContainer.innerHTML = `
       <section id="cart-without-promocode">
-			<div class="container">
-				<h1 class="d-none">Promocode Details</h1>
-				<h2 class="d-none">Promocode</h2>
-				<div class="cart-without-promocode-full">
-				<div  class="cart-without-promocode-first">
-						<div class="cart-without-promocode-first-full">
-							<div>
-								<div class="cart-without-img-sec">
-									<img src="${item.image}" alt="clothes-img" class="cart-item-image">
-								</div>
-							</div>
-							<div class="cart-without-content-sec">
-								<div class="cart-without-content-sec-full">
-									<p class="price-code-txt1">${item.name}</p>
-									<p class="price-code-txt2"> ${item.price}</p>
-									<div class="card-without-price-sec">
-										<div class="price-code-txt3">
-											<span>Color:</span>
-											<span>${item.color}</span>
-										</div>
-										<div  class="price-code-txt3">
-											<span>Size:</span>
-											<span>${item.size}</span>
-										</div>
-									</div>
-									<div class="card-without-promocode-increment">
-										<div class="product-incre">
-											<a href="javascript:void(0)" class="product__minus sub">
-												<span>
-													<svg width="8" height="8" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M1 1H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</span>
-											</a>
-											<input name="quantity" type="text" class="product__input" value=" ${item.quantity}">
-											<a href="javascript:void(0)" class="product__plus add">
-												<span>
-													<svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M1 4H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M4 7V1" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="cart-boder mt-16"></div>
-					</div>
-					</div>
-					</div>
-					</section>
+          <div class="container">
+              <h1 class="d-none">Promocode Details</h1>
+              <h2 class="d-none">Promocode</h2>
+              <div class="cart-without-promocode-full">
+              <div class="cart-without-promocode-first">
+                      <div class="cart-without-promocode-first-full">
+                          <div>
+                              <div class="cart-without-img-sec">
+                                  <img src="${item.image}" alt="clothes-img" class="cart-item-image">
+                              </div>
+                          </div>
+                          <div class="cart-without-content-sec">
+                              <div class="cart-without-content-sec-full">
+                                  <p class="price-code-txt1">${item.name}</p>
+                                  <p class="price-code-txt2"> ${item.price}</p>
+                                  <div class="card-without-price-sec">
+                                      <div class="price-code-txt3">
+                                          <span>Color:</span>
+                                          <span>${item.color}</span>
+                                      </div>
+                                      <div class="price-code-txt3">
+                                          <span>Size:</span>
+                                          <span>${item.size}</span>
+                                      </div>
+                                  </div>
+                                  <div class="card-without-promocode-increment">
+                                      <div class="product-incre">
+                                          <a href="javascript:void(0)" class="product__minus sub">
+                                              <span>
+                                                  <svg width="8" height="8" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M1 1H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                  </svg>
+                                              </span>
+                                          </a>
+                                          <input name="quantity" type="text" class="product__input" value=" ${item.quantity}">
+                                          <a href="javascript:void(0)" class="product__plus add">
+                                              <span>
+                                                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M1 4H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                      <path d="M4 7V1" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                  </svg>
+                                              </span>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="cart-boder mt-16"></div>
+                  </div>
+              </div>
+          </div>
+      </section>
     `;
 
     // Append the item container to the cart container

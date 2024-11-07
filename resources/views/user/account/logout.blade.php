@@ -63,7 +63,8 @@
 <script>
 function clearCartOnLogout() {
     // Clear cart items from localStorage on logout
-    localStorage.removeItem('cartProducts');
+// Clear cart data from localStorage on logout
+localStorage.removeItem('cart');
 }
 </script>						</div>
 					</div>
