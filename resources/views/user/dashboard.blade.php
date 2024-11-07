@@ -14,7 +14,7 @@
                             </ins>
                             <div>
                                 <div class="uk-wow-text">
-                                    Earn
+                                    Ear
                                     <br>
                                     Up To
                                 </div>
