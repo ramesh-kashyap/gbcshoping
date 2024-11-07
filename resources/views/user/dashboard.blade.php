@@ -10,7 +10,7 @@
                     <div class="uk-card uk-card-default uk-card-body uk-text-center uk-text-left@l">
                         <div class="uk-wow">
                             <ins class="uk-wow-large">
-                                1%
+                                1
                             </ins>
                             <div>
                                 <div class="uk-wow-text">
