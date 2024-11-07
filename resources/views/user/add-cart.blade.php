@@ -386,8 +386,7 @@ document.getElementById('add-to-cart-btn').addEventListener('click', function() 
     var selectedImage = document.querySelector('#product-image').src;
     var selectedQuantity = document.querySelector('input[name="quantity"]').value;
     var productPrice = document.querySelector('.price-sec2').textContent;
-    var productName = document.querySelector('.clo-txt1').textContent; // Assuming description is here
-
+    var productName = document.querySelector('.clo-txt1').textContent;
 
     // Create a product object
     var product = {
@@ -396,23 +395,23 @@ document.getElementById('add-to-cart-btn').addEventListener('click', function() 
         image: selectedImage,
         quantity: selectedQuantity,
         price: productPrice,
-        name: productName // Add description here
-
+        name: productName
     };
 
-    // Retrieve the existing cart array from sessionStorage or initialize a new one
-    var cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    // Retrieve the existing cart array from localStorage or initialize a new one
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
     
     // Add the new product to the cart array
     cart.push(product);
     
-    // Save the updated cart array back to sessionStorage
-    sessionStorage.setItem('cart', JSON.stringify(cart));
+    // Save the updated cart array back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
 
     // Redirect to the cart page
     window.location.href = '/user/cart';
 });
 </script>
+
 
 
 
