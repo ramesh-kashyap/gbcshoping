@@ -63,51 +63,48 @@
 		<!-- Header End -->
 		<!--Wishlist Screen Start -->
 		<section id="wishlist-section">
-    <div class="container">
-        <h1 class="d-none">Wishlist Page</h1>
-        <h2 class="d-none">Wishlist</h2>
-        <div class="wishlist-section-full mt-24">
-            <div class="wishlist-wrapper">
-                <div class="wishlist-wrapper-full">
-				@foreach($productIds as $value)
-				<div class="shoes-screen-wrapper electronic-redirect">
+			<div class="container">
+				<h1 class="d-none">Wishlist Page</h1>
+				<h2 class="d-none">Wishlist</h2>
+				<div class="wishlist-section-full mt-24">
+					<div class="wishlist-wrapper">
+						<div class="wishlist-wrapper-full">
+							
+							
+							
+							<div class="shoes-screen-wrapper cloth-redirect">
 								<div class="shoes-screen-top">
 									<div class="shoes-img wishlist-img">
-									<img style="width:auto;height:120px" src="{{ asset('uploads/images/' . $value->image) }}"
-									alt="IMG">
+										<img src="{{asset('')}}assets/images/wishlist/wishlist-4.png" alt="shoes-img">
 									</div>
 									<div class="clothes-favourite">
 										<a href="javascript:void(0);" class="item-bookmark active" tabindex="-1">
-											<img src="assets/images/icons/unfill-heart.svg" alt="unfill-heart">
+											<img src="{{asset('')}}assets/images/icons/unfill-heart.svg" alt="unfill-heart">
 										</a>
 									</div>
 								</div>
 								<div class="shoes-screen-bottom">
 									<div class="shoes-screen-bottom-full">
 										<div class="shoes-screen-first">
-											<h3>{{ $value->productName }}</h3>
+											<h3>Girl's Alloy Rose Gold Plated Dual Heart Pendant for mom with </h3>
 										</div>
 										<div class="shoes-screen-second">
 											<div class="cloth-txt1">
-												<span>${{ $value->productPrice }}</span>
+												<span>$450.00</span>
 											</div>
 											<div class="shoes-screen-second-full">
-												<span class="cloth-star"><img src="assets/images/icons/orange-star.svg" alt="star-img"></span>
+												<span class="cloth-star"><img src="{{asset('')}}assets/images/icons/orange-star.svg" alt="star-img"></span>
 												<span class="cloth-txt2">4.8</span>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							@endforeach
-                      
-                 
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<!--Wishlist Screen End -->
 		<!--SideBar Setting Menu -->
 		<div class="menu-sidebar details">
@@ -495,7 +492,7 @@
 							</g>
 						</svg>
 						<span>
-							Cart(2)
+							Cart
 						</span>
 					</a>
 					<a href="{{route('user.wishlist')}}"  class="active">

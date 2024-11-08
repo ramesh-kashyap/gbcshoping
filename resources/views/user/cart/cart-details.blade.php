@@ -145,7 +145,7 @@
 							<p>Subtotal</p>
 						</div>
 						<div class="check-price-list1">
-							<p>$300.00</p>
+							<p id="total-amount"></p>
 						</div>
 					</div>
 					<div class="check-page-bottom-deatails mt-8">
@@ -677,52 +677,60 @@ cart.forEach(function(item, index) {
 
     // Append the item container to the cart container
     cartContainer.appendChild(itemContainer);
-
-    // Get references to the quantity input, price display, plus, and minus buttons
-    const quantityInput = itemContainer.querySelector('.product__input');
-    const priceDisplay = itemContainer.querySelector('.item-price');
-    const minusButton = itemContainer.querySelector('.product__minus');
-    const plusButton = itemContainer.querySelector('.product__plus');
-
-    // Function to update the displayed price based on quantity
-	function updatePrice() {
-        const quantity = parseInt(quantityInput.value, 10);
-        const newPrice = (basePrice * quantity).toFixed(2);
-        priceDisplay.textContent = newPrice;
-        item.price = newPrice; // Update item price in the cart array
-        item.quantity = quantity; // Update quantity in the cart array
-
-        // Save the updated cart to localStorage
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
-     // Event listeners for increment and decrement buttons
-	 minusButton.addEventListener('click', function() {
-        let quantity = parseInt(quantityInput.value, 10);
-        if (quantity > 1) {
-            quantity -= 1;
-            quantityInput.value = quantity;
-            updatePrice();
-        }
-    });
-
-    plusButton.addEventListener('click', function() {
-        let quantity = parseInt(quantityInput.value, 10);
-        quantity += 1;
-        quantityInput.value = quantity;
-        updatePrice();
-    });
-    
-    // Event listener for manual quantity input change
-    quantityInput.addEventListener('input', function() {
-        let quantity = parseInt(quantityInput.value, 10);
-        if (quantity < 1) {
-            quantity = 1;
-        }
-        quantityInput.value = quantity;
-        updatePrice();
-    });
 });
 
+// Function to update the price based on quantity
+function updatePrice(quantity, price, elementId) {
+    // Calculate the updated total price
+    const totalPrice = price * quantity;
+
+	if(quantity<1){
+		totalPrice=price;
+	}
+    
+    // Find the price element by ID and update its content
+    document.getElementById(elementId).textContent = totalPrice.toFixed(2); // Optional: format to 2 decimal places
+	  // Update the cart array with the new quantity
+	  cart[index].quantity = quantity;
+	calculateTotalPrice();
+}
+
+// Function to change the quantity and update price
+function changeQuantity(index, delta) {
+    // Get the quantity input element for the specific item
+    var quantityInput = document.getElementById(`quantity-${index}`);
+    
+    // Calculate new quantity
+    var newQuantity = parseInt(quantityInput.value) + delta;
+    
+    // Ensure quantity doesn’t go below 1
+    if (newQuantity < 1) newQuantity = 1;
+    
+    // Update the input value
+	if(delta>0){
+    quantityInput.value = newQuantity-1;
+	}else{
+		quantityInput.value = newQuantity+1;
+
+	}
+    
+    // Update the price display for this item
+    updatePrice(newQuantity, cart[index].price, `price-${index}`);
+}
+
+// Function to calculate the total price of all items in the cart
+function calculateTotalPrice() {
+    // Calculate the total by summing up each item's price * quantity
+    const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+    // Update the total amount in the designated HTML element
+    document.getElementById('total-amount').textContent = `₹${totalPrice.toFixed(2)}`;
+
+
+}
+
+// Initial total price calculation
+calculateTotalPrice();
 </script>
 <style>{
 	   width: 100%;
