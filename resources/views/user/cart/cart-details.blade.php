@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Cart Details Store</title>
+	<title>Zoop Retails Store</title>
 	<link rel="icon" href="{{asset('')}}assets/images/favicon/icon.png">
 	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
@@ -68,7 +68,50 @@
 				<h2 class="d-none">Promocode</h2>
 				<div class="cart-without-promocode-full">
 				<div id="cart-container" class="cart-without-promocode-first">
-						
+						<div class="cart-without-promocode-first-full">
+							<div>
+								<div class="cart-without-img-sec">
+									<img src="" alt="clothes-img">
+								</div>
+							</div>
+							<div class="cart-without-content-sec">
+								<div class="cart-without-content-sec-full">
+									<p class="price-code-txt1"></p>
+									<p class="price-code-txt2"></p>
+									<div class="card-without-price-sec">
+										<div class="price-code-txt3">
+											<span>Color:</span>
+											<span></span>
+										</div>
+										<div  class="price-code-txt3">
+											<span>Size:</span>
+											<span></span>
+										</div>
+									</div>
+									<div class="card-without-promocode-increment">
+										<div class="product-incre">
+											<a href="javascript:void(0)" class="product__minus sub">
+												<span>
+													<svg width="8" height="8" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M1 1H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+													</svg>
+												</span>
+											</a>
+											<input name="quantity" type="text" class="product__input" value="1">
+											<a href="javascript:void(0)" class="product__plus add">
+												<span>
+													<svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M1 4H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+														<path d="M4 7V1" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+													</svg>
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cart-boder mt-16"></div>
 					</div>
 					
 				</div>
@@ -483,7 +526,7 @@
 		<div class="bottom-tabbar">
 			<div class="bottom-tabbar-full">
 				<nav>
-					<a href="{{route('Index')}}">
+					<a href="homescreen-1.html">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_3221" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -496,7 +539,7 @@
 							Home
 						</span>
 					</a>
-					<a href="{{route('search-product')}}">
+					<a href="search-screen.html">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5977" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -510,7 +553,7 @@
 							Search
 						</span>
 					</a>
-					<a href="{{route('user.cart')}}" class="active">
+					<a href="cart-without-promocode.html" class="active">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5464" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -526,7 +569,7 @@
 							Cart(2)
 						</span>
 					</a>
-					<a href="{{route('user.wishlist')}}" >
+					<a href="wishlist-screen.html" >
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5965" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -539,7 +582,7 @@
 							Wishlist
 						</span>
 					</a>
-					<a href="{{route('user.account-screen')}}">
+					<a href="account-screen.html">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5961" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -567,6 +610,9 @@ var cartContainer = document.getElementById('cart-container');
 
 // Loop through each item in the cart and create HTML for each
 cart.forEach(function(item, index) {
+    // Store base price to calculate total
+    const basePrice = item.price;
+
     // Create an item container
     var itemContainer = document.createElement('div');
     itemContainer.classList.add('cart-item');
@@ -578,7 +624,7 @@ cart.forEach(function(item, index) {
               <h1 class="d-none">Promocode Details</h1>
               <h2 class="d-none">Promocode</h2>
               <div class="cart-without-promocode-full">
-                  <div class="cart-without-promocode-first">
+              <div class="cart-without-promocode-first">
                       <div class="cart-without-promocode-first-full">
                           <div>
                               <div class="cart-without-img-sec">
@@ -588,7 +634,7 @@ cart.forEach(function(item, index) {
                           <div class="cart-without-content-sec">
                               <div class="cart-without-content-sec-full">
                                   <p class="price-code-txt1">${item.name}</p>
-                                  <p class="price-code-txt2" id="price-${index}">${(item.price * item.quantity).toFixed(2)}</p>
+                                  <p class="price-code-txt2">$<span class="item-price">${item.price}</span></p>
                                   <div class="card-without-price-sec">
                                       <div class="price-code-txt3">
                                           <span>Color:</span>
@@ -601,16 +647,15 @@ cart.forEach(function(item, index) {
                                   </div>
                                   <div class="card-without-promocode-increment">
                                       <div class="product-incre">
-                                          <a href="javascript:void(0)" class="product__minus sub" onclick="changeQuantity(${index}, -1)">
+                                          <a href="javascript:void(0)" class="product__minus sub">
                                               <span>
                                                   <svg width="8" height="8" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                       <path d="M1 1H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                                   </svg>
                                               </span>
                                           </a>
-                                          <input id="quantity-${index}" name="quantity" type="number" class="product__input" value="${item.quantity}" 
-                                                 oninput="updatePrice(this.value, ${item.price}, 'price-${index}')">
-                                          <a href="javascript:void(0)" class="product__plus add" onclick="changeQuantity(${index}, 1)">
+                                          <input name="quantity" type="text" class="product__input" value="${item.quantity}">
+                                          <a href="javascript:void(0)" class="product__plus add">
                                               <span>
                                                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                       <path d="M1 4H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -632,48 +677,53 @@ cart.forEach(function(item, index) {
 
     // Append the item container to the cart container
     cartContainer.appendChild(itemContainer);
+
+    // Get references to the quantity input, price display, plus, and minus buttons
+    const quantityInput = itemContainer.querySelector('.product__input');
+    const priceDisplay = itemContainer.querySelector('.item-price');
+    const minusButton = itemContainer.querySelector('.product__minus');
+    const plusButton = itemContainer.querySelector('.product__plus');
+
+    // Function to update the displayed price based on quantity
+	function updatePrice() {
+        const quantity = parseInt(quantityInput.value, 10);
+        const newPrice = (basePrice * quantity).toFixed(2);
+        priceDisplay.textContent = newPrice;
+        item.price = newPrice; // Update item price in the cart array
+        item.quantity = quantity; // Update quantity in the cart array
+
+        // Save the updated cart to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+     // Event listeners for increment and decrement buttons
+	 minusButton.addEventListener('click', function() {
+        let quantity = parseInt(quantityInput.value, 10);
+        if (quantity > 1) {
+            quantity -= 1;
+            quantityInput.value = quantity;
+            updatePrice();
+        }
+    });
+
+    plusButton.addEventListener('click', function() {
+        let quantity = parseInt(quantityInput.value, 10);
+        quantity += 1;
+        quantityInput.value = quantity;
+        updatePrice();
+    });
+    
+    // Event listener for manual quantity input change
+    quantityInput.addEventListener('input', function() {
+        let quantity = parseInt(quantityInput.value, 10);
+        if (quantity < 1) {
+            quantity = 1;
+        }
+        quantityInput.value = quantity;
+        updatePrice();
+    });
 });
 
-// Function to update the price based on quantity
-function updatePrice(quantity, price, elementId) {
-    // Calculate the updated total price
-    const totalPrice = price * quantity;
-
-	if(quantity<1){
-		totalPrice=price;
-	}
-    
-    // Find the price element by ID and update its content
-    document.getElementById(elementId).textContent = totalPrice.toFixed(2); // Optional: format to 2 decimal places
-	
-}
-
-// Function to change the quantity and update price
-function changeQuantity(index, delta) {
-    // Get the quantity input element for the specific item
-    var quantityInput = document.getElementById(quantity-${index});
-    
-    // Calculate new quantity
-    var newQuantity = parseInt(quantityInput.value) + delta;
-    
-    // Ensure quantity doesn’t go below 1
-    if (newQuantity < 1) newQuantity = 1;
-    
-    // Update the input value
-	if(delta>0){
-    quantityInput.value = newQuantity-1;
-	}else{
-		quantityInput.value = newQuantity+1;
-
-	}
-    
-    // Update the price display for this item
-    updatePrice(newQuantity, cart[index].price, price-${index});
-}
 </script>
-
-
-
 <style>{
 	   width: 100%;
             /* Adjust to container width */
