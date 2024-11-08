@@ -68,50 +68,7 @@
 				<h2 class="d-none">Promocode</h2>
 				<div class="cart-without-promocode-full">
 				<div id="cart-container" class="cart-without-promocode-first">
-						<div class="cart-without-promocode-first-full">
-							<div>
-								<div class="cart-without-img-sec">
-									<img src="" alt="clothes-img">
-								</div>
-							</div>
-							<div class="cart-without-content-sec">
-								<div class="cart-without-content-sec-full">
-									<p class="price-code-txt1"></p>
-									<p class="price-code-txt2"></p>
-									<div class="card-without-price-sec">
-										<div class="price-code-txt3">
-											<span>Color:</span>
-											<span></span>
-										</div>
-										<div  class="price-code-txt3">
-											<span>Size:</span>
-											<span></span>
-										</div>
-									</div>
-									<div class="card-without-promocode-increment">
-										<div class="product-incre">
-											<a href="javascript:void(0)" class="product__minus sub">
-												<span>
-													<svg width="8" height="8" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M1 1H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</span>
-											</a>
-											<input name="quantity" type="text" class="product__input" value="1">
-											<a href="javascript:void(0)" class="product__plus add">
-												<span>
-													<svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M1 4H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M4 7V1" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="cart-boder mt-16"></div>
+						
 					</div>
 					
 				</div>
@@ -526,7 +483,7 @@
 		<div class="bottom-tabbar">
 			<div class="bottom-tabbar-full">
 				<nav>
-					<a href="homescreen-1.html">
+					<a href="{{route('Index')}}">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_3221" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -539,7 +496,7 @@
 							Home
 						</span>
 					</a>
-					<a href="search-screen.html">
+					<a href="{{route('search-product')}}">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5977" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -553,7 +510,7 @@
 							Search
 						</span>
 					</a>
-					<a href="cart-without-promocode.html" class="active">
+					<a href="{{route('user.cart')}}" class="active">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5464" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -569,7 +526,7 @@
 							Cart(2)
 						</span>
 					</a>
-					<a href="wishlist-screen.html" >
+					<a href="{{route('user.wishlist')}}" >
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5965" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -582,7 +539,7 @@
 							Wishlist
 						</span>
 					</a>
-					<a href="account-screen.html">
+					<a href="{{route('user.account-screen')}}">
 						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<mask id="mask0_330_5961" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
 								<rect width="18" height="18" fill="white"/>
@@ -624,7 +581,7 @@ cart.forEach(function(item, index) {
               <h1 class="d-none">Promocode Details</h1>
               <h2 class="d-none">Promocode</h2>
               <div class="cart-without-promocode-full">
-              <div class="cart-without-promocode-first">
+                  <div class="cart-without-promocode-first">
                       <div class="cart-without-promocode-first-full">
                           <div>
                               <div class="cart-without-img-sec">
@@ -634,7 +591,7 @@ cart.forEach(function(item, index) {
                           <div class="cart-without-content-sec">
                               <div class="cart-without-content-sec-full">
                                   <p class="price-code-txt1">${item.name}</p>
-                                  <p class="price-code-txt2">$<span class="item-price">${item.price}</span></p>
+                                  <p class="price-code-txt2" id="price-${index}">${(item.price * item.quantity).toFixed(2)}</p>
                                   <div class="card-without-price-sec">
                                       <div class="price-code-txt3">
                                           <span>Color:</span>
@@ -647,15 +604,16 @@ cart.forEach(function(item, index) {
                                   </div>
                                   <div class="card-without-promocode-increment">
                                       <div class="product-incre">
-                                          <a href="javascript:void(0)" class="product__minus sub">
+                                          <a href="javascript:void(0)" class="product__minus sub" onclick="changeQuantity(${index}, -1)">
                                               <span>
                                                   <svg width="8" height="8" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                       <path d="M1 1H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                                   </svg>
                                               </span>
                                           </a>
-                                          <input name="quantity" type="text" class="product__input" value="${item.quantity}">
-                                          <a href="javascript:void(0)" class="product__plus add">
+                                          <input id="quantity-${index}" name="quantity" type="number" class="product__input" value="${item.quantity}" 
+                                                 oninput="updatePrice(this.value, ${item.price}, 'price-${index}')">
+                                          <a href="javascript:void(0)" class="product__plus add" onclick="changeQuantity(${index}, 1)">
                                               <span>
                                                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                       <path d="M1 4H7" stroke="#707070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -723,7 +681,46 @@ cart.forEach(function(item, index) {
     });
 });
 
+// Function to update the price based on quantity
+function updatePrice(quantity, price, elementId) {
+    // Calculate the updated total price
+    const totalPrice = price * quantity;
+
+	if(quantity<1){
+		totalPrice=price;
+	}
+    
+    // Find the price element by ID and update its content
+    document.getElementById(elementId).textContent = totalPrice.toFixed(2); // Optional: format to 2 decimal places
+	
+}
+
+// Function to change the quantity and update price
+function changeQuantity(index, delta) {
+    // Get the quantity input element for the specific item
+    var quantityInput = document.getElementById(`quantity-${index}`);
+    
+    // Calculate new quantity
+    var newQuantity = parseInt(quantityInput.value) + delta;
+    
+    // Ensure quantity doesn’t go below 1
+    if (newQuantity < 1) newQuantity = 1;
+    
+    // Update the input value
+	if(delta>0){
+    quantityInput.value = newQuantity-1;
+	}else{
+		quantityInput.value = newQuantity+1;
+
+	}
+    
+    // Update the price display for this item
+    updatePrice(newQuantity, cart[index].price, `price-${index}`);
+}
 </script>
+
+
+
 <style>{
 	   width: 100%;
             /* Adjust to container width */
