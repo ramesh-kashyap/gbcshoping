@@ -221,54 +221,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cloths-fourth-sec">
-                    <div class="container">
-                        <div class="cloths-fourth-sec-full">
-                            <h3 class="des-txt1">Additional Info:</h3>
-                            <div class="additional-deatils">
-                                <ul>
-                                    <li>
-                                        <span class="add-txt1">Care Instructions:</span>
-                                        <span class="add-txt2">Dry Clean Only</span>
-                                    </li>
-                                    <li>
-                                        <span class="add-txt1">Fit Type: </span>
-                                        <span class="add-txt2">Slim</span>
-                                    </li>
-                                    <li>
-                                        <span class="add-txt1">Dress Fabric : </span>
-                                        <span class="add-txt2">Georgette</span>
-                                    </li>
-                                    <li>
-                                        <span class="add-txt1">Style : </span>
-                                        <span class="add-txt2">Flare A-line</span>
-                                    </li>
-                                    <li>
-                                        <span class="add-txt1">Length :</span>
-                                        <span class="add-txt2">Ankle Length</span>
-                                    </li>
-                                    <li>
-                                        <span class="add-txt1">Sleeves : </span>
-                                        <span class="add-txt2">3/4th Sleeve</span>
-                                    </li>
-                                    <li>
-                                        <span class="add-txt1">Neck :</span>
-                                        <span class="add-txt2">Round Neck</span>
-                                    </li>
-                                    <li>
-                                        <span class="add-txt1">Print or Pattern Type : </span>
-                                        <span class="add-txt2">Floral</span>
-                                    </li>
-                                    <li>
-                                        <span class="add-txt1">Length : </span>
-                                        <span class="add-txt2">Maxi</span>
-                                    </li>
-                                </ul>
-                                <div class="single-cloth-border"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
 		
                 <div class="cloths-fifth-sec">
                     <div class="container">
@@ -384,8 +337,8 @@ document.getElementById('add-to-cart-btn').addEventListener('click', function() 
     var selectedSize = document.querySelector('input[name="size"]:checked').value;
     var selectedColor = document.querySelector('input[name="color"]:checked').id;
     var selectedImage = document.querySelector('#product-image').src;
-    var selectedQuantity = document.querySelector('input[name="quantity"]').value;
-    var productPrice = document.querySelector('.price-sec2').textContent;
+    var selectedQuantity = parseInt(document.querySelector('input[name="quantity"]').value) || 1; // Ensure quantity is a number
+    var productPrice = parseFloat(document.querySelector('.price-sec2').textContent.replace('$', '')); // Convert price to number
     var productName = document.querySelector('.clo-txt1').textContent;
 
     // Create a product object

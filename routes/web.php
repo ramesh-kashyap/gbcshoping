@@ -84,6 +84,13 @@ Route::prefix('user')->group(function ()
 {
 Route::middleware('auth')->group(function ()
 {
+
+  Route::get('/add-to-wishlist', [App\Http\Controllers\UserPanel\WishlistController::class, 'add'])->name('wishlist.add');
+// Route::get('/info-wishlist', [App\Http\Controllers\UserPanel\WishlistController::class, 'getProductInfo'])->name('wishlist.info');
+Route::post('/remove-from-wishlist', [App\Http\Controllers\UserPanel\WishlistController::class, 'remove'])->name('wishlist.remove');
+// Route::get('/wishlist', [App\Http\Controllers\UserPanel\WishlistController::class, 'showWishlist'])->name('wishlist.page');
+
+
   Route::post('/add-to-cart', [App\Http\Controllers\UserPanel\HomeController::class, 'addToCart'])->name('user.add-to-cart');
 
   Route::get('/all-products/{categoryId}', [App\Http\Controllers\UserPanel\HomeController::class, 'all_products'])->name('user.show-all-product');
