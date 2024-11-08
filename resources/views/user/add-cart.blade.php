@@ -288,7 +288,7 @@
                             <div class="clothes-sixth-full">
                                 <div class="cloth-price-sec">
                                     <span class="price-sec1">Price:</span>
-                                    <span class="price-sec2">{{$product->productPrice}}</span>
+                                    <span class="price-sec2">${{$product->productPrice}}</span>
                                 </div>
                                 <div class="cloths-increment-sec">
                                     <div class="product-incre">
