@@ -103,7 +103,7 @@
 							<p>Subtotal</p>
 						</div>
 						<div class="check-price-list1">
-							<p>$300.00</p>
+							<p id="total-amount"></p>
 						</div>
 					</div>
 					<div class="check-page-bottom-deatails mt-8">
@@ -646,7 +646,9 @@ function updatePrice(quantity, price, elementId) {
     
     // Find the price element by ID and update its content
     document.getElementById(elementId).textContent = totalPrice.toFixed(2); // Optional: format to 2 decimal places
-	
+	  // Update the cart array with the new quantity
+	  cart[index].quantity = quantity;
+	calculateTotalPrice();
 }
 
 // Function to change the quantity and update price
@@ -671,6 +673,20 @@ function changeQuantity(index, delta) {
     // Update the price display for this item
     updatePrice(newQuantity, cart[index].price, `price-${index}`);
 }
+
+// Function to calculate the total price of all items in the cart
+function calculateTotalPrice() {
+    // Calculate the total by summing up each item's price * quantity
+    const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+    // Update the total amount in the designated HTML element
+    document.getElementById('total-amount').textContent = `₹${totalPrice.toFixed(2)}`;
+
+
+}
+
+// Initial total price calculation
+calculateTotalPrice();
 </script>
 
 
