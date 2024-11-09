@@ -57,25 +57,27 @@
 					</div>
 					<div class="map-bottom-sec mt-32">
 						<div class="map-bottom-sec-full">
-							<form class="map-section-form">
+						<form action="{{ route('store-address') }}" method="POST" class="map-section-form">
+								@csrf
 								<div class="title-sec">
-									<label for="title">title</label>
-									<input type="text" value="Home" id="title" class="mt-8">
+									<label for="title">Title</label>
+									<input type="text" name="title" id="title" class="mt-8">
 								</div>
 								<div class="title-sec mt-16">
 									<label for="address">Address</label>
-									<input type="text" value="61480 Sunbrook Park, PC 5679" id="address" class="mt-8">
+									<input type="text" name="address" id="address" class="mt-8">
 								</div>
 								<div class="footer-checkbox-sec mt-16">
-									<input class="checkbox-input-add" id="footer-checkbox" type="checkbox">
+									<input class="checkbox-input-add" name="default" id="footer-checkbox" type="checkbox" value="1">
 									<label for="footer-checkbox" class="footer-chec-txt1">Make this as the default address</label>
+								</div>
+								<div class="add-address-btn">
+									<button type="submit">Add Address</button>
 								</div>
 							</form>
 						</div>
 					</div>
-					<div class="add-address-btn">
-						<a href="address-screen.html">Add Address</a>
-					</div>
+					
 				</div>
 			</div>
 		</section>

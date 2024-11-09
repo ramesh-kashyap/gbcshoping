@@ -208,12 +208,7 @@
                         <div class="cloth-third-sec-full">
                             <h3 class="des-txt1">Description</h3>
                             <div>
-                                <p class="des-txt2">This casual basic Dress fits most ladies and it's easy to pair with
-                                    as well as heels or sneakers. You
-                                    <span class="moretext">
-                                        1.3",120+ Sports Modes, 240 * 240 PX High Res with SpO2, Heart Rate Monitoring &
-                                        IP67 Rating, Rs 100 Off on UPI
-                                    </span>
+                                <p class="des-txt2">{{$product->ProductDiscription}}
                                 </p>
                                 <a class="moreless-button" href="javascript:void(0)">Read More</a>
                             </div>

@@ -100,6 +100,8 @@
         <div class="shoes-screen-full mt-32">
             @foreach($category->products as $product)
                 <div class="shoes-screen-wrapper cloth-redirect">
+				<a href="{{ route('user.show-product', $product->id) }}">
+
                     <div class="shoes-screen-top">
                         <div class="shoes-img">
                             <img src="{{ asset('uploads/images/' . $product->image) }}" alt="shoes-img">
@@ -128,6 +130,7 @@
                             </div>
                         </div>
                     </div>
+</a>
                 </div>
             @endforeach
         </div>

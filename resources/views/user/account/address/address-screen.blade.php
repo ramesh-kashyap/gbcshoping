@@ -51,87 +51,27 @@
 			<div class="container">
 				<h1 class="d-none">Address Screen</h1>
 				<div class="address-screen-full">
+				@foreach($addresses as $address)
 					<div class="address-screen-wrapper">
 						<div class="add-icon">
 							<img src="{{asset('')}}assets/images/icons/location-icon.svg" alt="location-icon">
 						</div>
 						<div class="add-deatils">
 							<div>
-								<span class="add-deatils-txt1">Home</span>
+						
+								<span class="add-deatils-txt1">{{$address->title}}</span>
 								<span class="add-deatils-txt2">Default</span>
 							</div>
-							<p class="add-deatils-txt3">61480 Sunbrook Park, PC 5679</p>
+							<p class="add-deatils-txt3">{{$address->address}}</p>
 						</div>
 						<div class="add-edit-btn">
-							<a href="add-address-screen.html">
+							<a href="{{route('add-address')}}">
 								<img src="{{asset('')}}assets/images/icons/edit-icon.svg" alt="edit-icon">
 							</a>
 						</div>
 					</div>
-					<div class="address-screen-wrapper">
-						<div class="add-icon">
-							<img src="{{asset('')}}assets/images/icons/location-icon.svg" alt="location-icon">
-						</div>
-						<div class="add-deatils">
-							<div>
-								<span class="add-deatils-txt1">Office</span>
-							</div>
-							<p class="add-deatils-txt3">69993 Meadow Valley Terra, PC 3637</p>
-						</div>
-						<div class="add-edit-btn">
-							<a href="add-address-screen.html">
-								<img src="{{asset('')}}assets/images/icons/edit-icon.svg" alt="edit-icon">
-							</a>
-						</div>
-					</div>
-					<div class="address-screen-wrapper">
-						<div class="add-icon">
-							<img src="{{asset('')}}assets/images/icons/location-icon.svg" alt="location-icon">
-						</div>
-						<div class="add-deatils">
-							<div>
-								<span class="add-deatils-txt1">Apartment</span>
-							</div>
-							<p class="add-deatils-txt3">21833 Clyde Gallagher, PC 4662</p>
-						</div>
-						<div class="add-edit-btn">
-							<a href="add-address-screen.html">
-								<img src="{{asset('')}}assets/images/icons/edit-icon.svg" alt="edit-icon">
-							</a>
-						</div>
-					</div>
-					<div class="address-screen-wrapper">
-						<div class="add-icon">
-							<img src="{{asset('')}}assets/images/icons/location-icon.svg" alt="location-icon">
-						</div>
-						<div class="add-deatils">
-							<div>
-								<span class="add-deatils-txt1">Parent’s House</span>
-							</div>
-							<p class="add-deatils-txt3">5259 Blue Bill Park, PC 4627</p>
-						</div>
-						<div class="add-edit-btn">
-							<a href="add-address-screen.html">
-								<img src="{{asset('')}}assets/images/icons/edit-icon.svg" alt="edit-icon">
-							</a>
-						</div>
-					</div>
-					<div class="address-screen-wrapper">
-						<div class="add-icon">
-							<img src="{{asset('')}}assets/images/icons/location-icon.svg" alt="location-icon">
-						</div>
-						<div class="add-deatils">
-							<div>
-								<span class="add-deatils-txt1">Town Square</span>
-							</div>
-							<p class="add-deatils-txt3">5375 Summerhouse, PC 4627</p>
-						</div>
-						<div class="add-edit-btn">
-							<a href="add-address-screen.html">
-								<img src="{{asset('')}}assets/images/icons/edit-icon.svg" alt="edit-icon">
-							</a>
-						</div>
-					</div>
+				@endforeach
+				
 					<div class="new-add-btn">
 						<a href="{{route('add-address')}}">Add New Address</a>
 					</div>

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\UserPanel;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 class accountCtrollerr extends Controller
 {
     public function account()
@@ -39,11 +40,13 @@ class accountCtrollerr extends Controller
     }   
 
 
+    public function address() 
+{
+    $addresses = DB::table('address')->get(); // Fetch all addresses
 
-    public function address()
-    {
-        return view('user.account.address.address-screen');
-    }
+    return view('user.account.address.address-screen', compact('addresses'));
+}
+ 
     public function addAddress()
     {
         return view('user.account.address.add-address');
@@ -88,4 +91,24 @@ class accountCtrollerr extends Controller
     {
         return view('user.account.logout');
     }
+
+    public function storeAddress(Request $request) 
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'address' => 'required|string|max:255',
+        'default' => 'nullable|boolean'
+    ]);
+
+    // Insert data directly into the database
+    DB::table('address')->insert([
+        'title' => $request->input('title'),
+        'address' => $request->input('address'),
+        'created_at' => Carbon::now()->toDateTimeString(),
+        'updated_at' => Carbon::now()->toDateTimeString(),
+    ]);
+
+    return redirect()->route('add-address')->with('success', 'Address added successfully');
+}
+
 }
