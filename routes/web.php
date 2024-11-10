@@ -54,6 +54,9 @@ Route::get('/register_sucess', [App\Http\Controllers\Register::class, 'index'])-
 
 Route::get('/Index', [App\Http\Controllers\UserPanel\HomeController::class, 'index'])->name('Index');
 Route::get('/search-product', [App\Http\Controllers\UserPanel\SearchController::class, 'search_product'])->name('search-product');
+Route::get('/search-item', [App\Http\Controllers\UserPanel\SearchController::class, 'search_item'])->name('search-item');
+Route::get('/reset-item', [App\Http\Controllers\UserPanel\SearchController::class, 'reset_item'])->name('reset-item');
+
 Route::get('/filter-screen', [App\Http\Controllers\UserPanel\SearchController::class, 'filter'])->name('filter-screen');
 
 Route::get('/wishlist', [App\Http\Controllers\UserPanel\CartController::class, 'wishlist'])->name('user.wishlist');
@@ -109,7 +112,7 @@ Route::get('/enter-Pincode', [App\Http\Controllers\UserPanel\CartController::cla
 Route::get('/account-screen', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'account'])->name('user.account-screen');
 
 Route::get('/profile-edit', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'profile'])->name('profile-edit');
-
+Route::post('/store-address', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'storeAddress'])->name('store-address');
 Route::get('/wallet', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'wallet'])->name('wallet');
 Route::get('/my-order', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'myorder'])->name('my-order');
 Route::get('/payment', [App\Http\Controllers\UserPanel\accountCtrollerr::class, 'payment'])->name('payment');

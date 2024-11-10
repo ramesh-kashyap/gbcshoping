@@ -90,7 +90,11 @@
             <div class="container">
                 <div class="noresult-screen-full">
                     <div class="input-group search-page-searchbar ">
-                        <span class="input-group-text search-iconn">
+                       
+                        <form action="{{ route('search-item') }}" method="GET">
+                            
+    <div class="input-group search-page-searchbar">
+    <span class="input-group-text search-iconn">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -98,112 +102,84 @@
                                     fill="#000000"></path>
                             </svg>
                         </span>
-                        <input type="text" placeholder="Search" class="form-control search-text" id="search-input">
-                    </div>
-                    <div class="search-filter">
-                        <div class="search-filter-btn">
-                            <a href="filter-screen.html">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <mask id="mask0_330_5185" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
-                                        y="0" width="24" height="24">
-                                        <rect width="24" height="24" fill="white" />
-                                    </mask>
-                                    <g mask="url(#mask0_330_5185)">
-                                        <path
-                                            d="M14 8C15.1046 8 16 7.10457 16 6C16 4.89543 15.1046 4 14 4C12.8954 4 12 4.89543 12 6C12 7.10457 12.8954 8 14 8Z"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M4 6H12" stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M16 6H20" stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path
-                                            d="M8 14C9.10457 14 10 13.1046 10 12C10 10.8954 9.10457 10 8 10C6.89543 10 6 10.8954 6 12C6 13.1046 6.89543 14 8 14Z"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M4 12H6" stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M10 12H20" stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path
-                                            d="M17 20C18.1046 20 19 19.1046 19 18C19 16.8954 18.1046 16 17 16C15.8954 16 15 16.8954 15 18C15 19.1046 15.8954 20 17 20Z"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M4 18H15" stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M19 18H20" stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+      
+        <input type="text" name="search" value="{{ request('search') }}" placeholder="Search" class="form-control search-text" id="search-input">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>                   
+ </div>
+
+<form action="{{ route('reset-item') }}" method="GET">
+<button style="height: 51px;
+    width: 106px;"type="submit" class="btn btn-primary">Reset</button>
+</form>                   
+
+                   
                 </div>
             </div>
 			<div class="homescreen-eight-wrapper-bottom mt-16">
 				<div class="homescreen-eight-bottom-full">
-					<ul class="nav nav-pills mb-3" id="homepage1-tab" role="tablist">
+                <div id="product-list">
+    <ul class="nav nav-pills mb-3" id="homepage1-tab" role="tablist">
+        @foreach($categories as $category)
+        <li class="nav-item" role="presentation">
+            <button class="nav-link custom-home1-tab-btn {{ $loop->first ? 'active' : '' }}"
+                id="pills-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-{{ $category->id }}"
+                type="button" role="tab"
+                aria-selected="{{ $loop->first ? 'true' : 'false' }}">
+                {{ $category->categoryname }}
+            </button>
+        </li>
+        @endforeach
+    </ul>
 
-						@foreach($categories as $category)
-						<li class="nav-item" role="presentation">
-							<button class="nav-link custom-home1-tab-btn {{ $loop->first ? 'active' : '' }}"
-								id="pills-tab"
-								data-bs-toggle="pill"
-								data-bs-target="#pills-{{ $category->id }}"
-								type="button" role="tab"
-								aria-selected="{{ $loop->first ? 'true' : 'false' }}">
-								{{ $category->categoryname }}
-							</button>
-						</li>
-						@endforeach
-					</ul>
+    <div class="tab-content" id="pills-tabContent">
+        @foreach($categories as $category)
+        <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+            id="pills-{{ $category->id }}"
+            role="tabpanel"
+            tabindex="0">
+            <div class="container">
+                <div class="wishlist-wrapper-full">
+                    @foreach($category->products as $product)
+                    <div class="shoes-screen-wrapper electronic-redirect">
+                        <div class="shoes-screen-top">
+                            <div class="shoes-img wishlist-img">
+                                <img style="width:auto;height:120px" src="{{ asset('uploads/images/' . $product->image) }}" alt="{{ $product->productName }}">
+                            </div>
+                            <div class="clothes-favourite">
+                                <a href="javascript:void(0);" class="item-bookmark" tabindex="-1">
+                                    <img src="{{asset('assets/images/icons/unfill-heart.svg')}}" alt="unfill-heart">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="shoes-screen-bottom">
+                            <div class="shoes-screen-bottom-full">
+                                <div class="shoes-screen-first">
+                                    <h3>{{ $product->productName }}</h3>
+                                </div>
+                                <div class="shoes-screen-second">
+                                    <div class="cloth-txt1">
+                                        <span>${{ $product->productPrice }}</span>
+                                    </div>
+                                    <div class="shoes-screen-second-full">
+                                        <span class="cloth-star"><img src="{{asset('assets/images/icons/orange-star.svg')}}" alt="star-img"></span>
+                                        <span class="cloth-txt2">4.8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
 
-					<div class="tab-content" id="pills-tabContent">
-						@foreach($categories as $category)
-						<div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
-							id="pills-{{ $category->id }}"
-							role="tabpanel"
-							tabindex="0">
-
-							<div class="container">
-								<div class="wishlist-wrapper-full">
-									@foreach($category->products as $product)
-									<div class="shoes-screen-wrapper electronic-redirect">
-										<div class="shoes-screen-top">
-											<div class="shoes-img wishlist-img">
-												<img style="width:auto;height:120px" src="{{ asset('uploads/images/' . $product->image) }}"
-													alt="{{ $product->name }}">
-											</div>
-											<div class="clothes-favourite">
-												<a href="javascript:void(0);" class="item-bookmark" tabindex="-1">
-													<img src="{{asset('')}}assets/images/icons/unfill-heart.svg" alt="unfill-heart">
-												</a>
-											</div>
-										</div>
-										<div class="shoes-screen-bottom">
-											<div class="shoes-screen-bottom-full">
-												<div class="shoes-screen-first">
-													<h3>{{ $product->productName }}</h3>
-												</div>
-												<div class="shoes-screen-second">
-													<div class="cloth-txt1">
-														<span>${{ $product->productPrice }}</span>
-													</div>
-													<div class="shoes-screen-second-full">
-														<span class="cloth-star"><img src="{{asset('')}}assets/images/icons/orange-star.svg" alt="star-img"></span>
-														<span class="cloth-txt2">4.8</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									@endforeach
-								</div>
-							</div>
-						</div>
-						@endforeach
-					</div>
 				</div>
 			</div>
         </section>
@@ -790,6 +766,9 @@
         </div>
         <!--Bottom TabBar Section End -->
     </div>
+    <style>
+       
+        </style>
     <script src="{{asset('')}}assets/js/jquery-min-3.6.0.js"></script>
     <script src="{{asset('')}}assets/js/slick.min.js"></script>
     <script src="{{asset('')}}assets/js/bootstrap.bundle.min.js"></script>

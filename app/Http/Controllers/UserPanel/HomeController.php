@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Color;
 use App\Models\SubProduct;
 
+
 use Illuminate\Support\Facades\Log;
 
 
@@ -74,6 +75,8 @@ public function addToCart(Request $request)
     
         return view('user.add-cart', compact('product'));
     }
+
+    
     
 
 }

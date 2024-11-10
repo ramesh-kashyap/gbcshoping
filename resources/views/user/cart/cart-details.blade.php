@@ -140,43 +140,44 @@
 					<div class="cart-boder mt-24"></div>
 				</div>
 				<div class="check-page-bottom mt-24">
-					<div class="check-page-bottom-deatails">
-						<div class="check-price-name1">
-							<p>Subtotal</p>
-						</div>
-						<div class="check-price-list1">
-							<p id="total-amount"></p>
-						</div>
-					</div>
-					<div class="check-page-bottom-deatails mt-8">
-						<div class="check-price-name">
-							<p>Discount</p>
-						</div>
-						<div>
-							<p class="col-green">$0.00</p>
-						</div>
-					</div>
-					<div class="check-page-bottom-deatails mt-8">
-						<div class="check-price-name">
-							<p>Delivery</p>
-						</div>
-						<div>
-							<p class="col-red">+$15.00</p>
-						</div>
-					</div>
-					<div class="cart-boder mt-24"></div>
-				</div>
-				<div class="without-code-last mt-24">
-					<div class="without-code-last-full">
-						<div>
-							<p class="total-txt">Total:</p>
-							<p class="price-txt">$315.00</p>
-						</div>
-						<div class="proceed-to check-btn">
-							<a href="checkout-screen.html">Proceed To Checkout</a>
-						</div>
-					</div>
-				</div>
+    <div class="check-page-bottom-deatails">
+        <div class="check-price-name1">
+            <p>Subtotal</p>
+        </div>
+        <div class="check-price-list1">
+            <p id="subtotal">$0.00</p>
+        </div>
+    </div>
+    <div class="check-page-bottom-deatails mt-8">
+        <div class="check-price-name">
+            <p>Discount</p>
+        </div>
+        <div>
+            <p class="col-green">$0.00</p>
+        </div>
+    </div>
+    <div class="check-page-bottom-deatails mt-8">
+        <div class="check-price-name">
+            <p>Delivery</p>
+        </div>
+        <div>
+            <p class="col-red" id="delivery-charge">+$15.00</p>
+        </div>
+    </div>
+    <div class="cart-boder mt-24"></div>
+</div>
+<div class="without-code-last mt-24">
+    <div class="without-code-last-full">
+        <div>
+            <p class="total-txt">Total:</p>
+            <p class="price-txt" id="total">$0.00</p>
+        </div>
+        <div class="proceed-to check-btn">
+            <a href="checkout-screen.html">Proceed To Checkout</a>
+        </div>
+    </div>
+</div>
+
 			</div>
 		</section>
 		<!-- Without Promocode Section End -->
@@ -607,6 +608,7 @@ var cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Select the cart container where items will be displayed
 var cartContainer = document.getElementById('cart-container');
+const deliveryCharge = 15.00; // Fixed delivery charge
 
 // Loop through each item in the cart and create HTML for each
 cart.forEach(function(item, index) {
@@ -614,6 +616,7 @@ cart.forEach(function(item, index) {
     const basePrice = item.price;
 
     // Create an item container
+	
     var itemContainer = document.createElement('div');
     itemContainer.classList.add('cart-item');
 
@@ -677,23 +680,42 @@ cart.forEach(function(item, index) {
 
     // Append the item container to the cart container
     cartContainer.appendChild(itemContainer);
+
+	updateTotals();
+
 });
 
 // Function to update the price based on quantity
 function updatePrice(quantity, price, elementId) {
-    // Calculate the updated total price
-    const totalPrice = price * quantity;
+    // Ensure quantity is at least 1
+    const finalQuantity = Math.max(quantity, 1);
 
-	if(quantity<1){
-		totalPrice=price;
-	}
-    
-    // Find the price element by ID and update its content
-    document.getElementById(elementId).textContent = totalPrice.toFixed(2); // Optional: format to 2 decimal places
-	  // Update the cart array with the new quantity
-	  cart[index].quantity = quantity;
-	calculateTotalPrice();
+    // Calculate the updated total price for the individual item
+    const totalPrice = price * finalQuantity;
+    document.getElementById(elementId).textContent = totalPrice.toFixed(2);
+
+    // Update totals based on current DOM values, not `cart`
+    updateTotalsFromDOM();
 }
+
+function updateTotalsFromDOM() {
+    let subtotal = 0;
+
+
+    cart.forEach((item, index) => {
+
+
+        const quantity = parseInt(document.getElementById(`quantity-${index}`).value) || 1;
+
+
+        subtotal += parseFloat(item.price) * quantity;
+    });
+
+    const total = subtotal + deliveryCharge;
+    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+}
+
 
 // Function to change the quantity and update price
 function changeQuantity(index, delta) {
@@ -715,22 +737,29 @@ function changeQuantity(index, delta) {
 	}
     
     // Update the price display for this item
-    updatePrice(newQuantity, cart[index].price, `price-${index}`);
-}
+    updatePrice(newQuantity, cart[index].price, `price-${index}`, index);
 
-// Function to calculate the total price of all items in the cart
-function calculateTotalPrice() {
-    // Calculate the total by summing up each item's price * quantity
-    const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-
-    // Update the total amount in the designated HTML element
-    document.getElementById('total-amount').textContent = `₹${totalPrice.toFixed(2)}`;
+	// updateTotalsFromDOM();
 
 
 }
 
-// Initial total price calculation
-calculateTotalPrice();
+function updateTotals() {
+    let subtotal = 0;
+    cart.forEach(item => {
+        
+
+
+        subtotal += parseFloat(item.price) * parseInt(item.quantity);
+    });
+    const total = subtotal + deliveryCharge;
+    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+}
+
+// Call updateTotals on initial load
+updateTotals();
+
 </script>
 <style>{
 	   width: 100%;
